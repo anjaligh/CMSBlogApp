@@ -1,0 +1,24 @@
+<div class="container1">
+    <div class="form-box">
+        
+        <form id="form-reg" [formGroup]="adminloginForm" (ngSubmit)="loginAdmin()">
+            <h1>Admin Login</h1><br>
+            <label for="email">Email</label><br>
+            <input type="text" id="email"><br>
+            <small style="color: red;" *ngIf="adminloginForm.controls['mailid'].touched && adminloginForm.controls['mailid'].invalid">Invalid email id!</small>
+            <small style="color: green;" *ngIf="adminloginForm.controls['mailid'].valid">Valid!</small><br><br>
+            <!-- <label for="user" style="padding-right: 40px;">Account Type</label><br>
+            <select name="" id="">
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select><br><br> -->
+            <label for="pwd">Password</label><br>
+            <input type="password" id="pwd"><br>
+            <small style="color: red;"*ngIf="adminloginForm.controls['password'].touched && adminloginForm.controls['password'].invalid">Password must contain an uppercase letter, lowecase letter and a number.</small>
+            <small style="color: green;"*ngIf="adminloginForm.controls['password'].valid">Valid!</small><br><br>
+            <button id="submit">button</button><br>
+            <p>Don't have an account? <a routerLink="register">Register</a></p> 
+        </form>
+    </div>
+    
+</div>

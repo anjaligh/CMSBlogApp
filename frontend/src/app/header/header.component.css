@@ -1,0 +1,12 @@
+.navbar{
+    background-color: aqua;
+    height: 5vw;
+}
+.container1{
+    padding-left: 2vw;
+    padding-right: 2vw;
+    background-color: aqua;
+}
+.active1{
+    color: red;
+}
