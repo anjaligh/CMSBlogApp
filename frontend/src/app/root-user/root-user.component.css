@@ -1,5 +1,14 @@
+.container1{
+    margin: 0px;
+    width: 100vw;
+    height: 80vh;
+    overflow-x: hidden;
+    background-color:#636D79;
+    display: flex;
+}
 .sidebar {
     max-width: 250px;
+    width: 100%;
     background-color: rgb(0, 255, 85);
     height: 80vh;
 justify-content: center;
@@ -12,3 +21,11 @@ a{
 /* a:hover{
     background-color: aliceblue;
 } */
+.right{
+    width: 83.9vw;
+    height: 80vh;
+    background-color:#F2F2F2;
+    margin-left: 0px;
+    overflow-x: hidden;
+    
+}

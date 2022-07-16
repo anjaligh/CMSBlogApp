@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { RootUserComponent } from './root-user/root-user.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { UsersListComponent } from './users-list/users-list.component';
+import { AdminsListComponent } from './admins-list/admins-list.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { HomeComponent } from './home/home.component';
     RootUserComponent,
     LoginAdminComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    UsersListComponent,
+    AdminsListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
