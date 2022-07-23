@@ -86,6 +86,40 @@ app.post('/login',(req, res) => {
       });
   })
 
+  app.post('/createpost',(req,res)=>{
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+    console.log('hello backend')
+    console.log(req.body);
+    var newUser={
+        mailid: req.body.mailid,
+        username: req.body.username,
+        accountType: req.body.accountType,
+        password: req.body.password,
+        passwordCnfrm: req.body.passwordCnfrm
+    }
+var newRegisterData= new registerData(newUser)
+newRegisterData.save()
+.then((result) => {
+
+    res.json({ success: true, message: "User Created" })
+  }).catch(err => {
+    if (err.code === 11000) {
+
+      return res.json({ success: false, message: "Email id already exists" })
+
+
+    }
+    return res.json({ success: false, message: "Authentication Failed" })
+
+  })
+
+// res.send('success');
+})
+
+
+
+
 
 const PORT=process.env.PORT||3001;
 app.listen(PORT,()=>{

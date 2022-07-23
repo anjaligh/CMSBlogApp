@@ -7,12 +7,12 @@
             <input type="text" id="email" name="mailid" formControlName="mailid"><br>
             <small style="color: red;" *ngIf="registerForm.controls['mailid'].touched && registerForm.controls['mailid'].invalid">Invalid email id!</small>
             <small style="color: green;" *ngIf="registerForm.controls['mailid'].valid">Valid!</small>
-            <br><br>
+            <br>
             
             <label for="username">Name</label><br>
             <input type="text" id="username" name="username" formControlName="username"><br>
             <small style="color: red;"*ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid">Only letters and spaces are allowed!</small>
-            <small style="color: green;"*ngIf="registerForm.controls['username'].valid">Valid!</small><br><br>
+            <small style="color: green;"*ngIf="registerForm.controls['username'].valid">Valid!</small><br>
             
             <label for="user" style="padding-right: 40px;" >Account Type</label><br>
             <select name="" id=""name="accountType" formControlName="accountType">
@@ -30,12 +30,12 @@
             <label for="pwd">Password</label><br>
             <input type="password" id="pwd" name="password" formControlName="password"><br>
             <small style="color: red;"*ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid">Invalid Password!</small>
-            <small style="color: green;"*ngIf="registerForm.controls['password'].valid">Valid!</small><br><br>
+            <small style="color: green;"*ngIf="registerForm.controls['password'].valid">Valid!</small><br>
             
             <label for="confpwd">Confirm Password</label><br>
             <input type="password" id="confpwd" name="passwordCnfrm" formControlName="passwordCnfrm"><br>
             <small style="color: red;"*ngIf="registerForm.controls['passwordCnfrm'].touched && (registerForm.controls['password'].value !== registerForm.controls['passwordCnfrm'].value)">Passwords do not match!</small>
-            <small style="color: green;"*ngIf="registerForm.controls['passwordCnfrm'].touched && (registerForm.controls['password'].value === registerForm.controls['passwordCnfrm'].value)">Passwords Match!</small><br><br>
+            <small style="color: green;"*ngIf="registerForm.controls['passwordCnfrm'].touched && (registerForm.controls['password'].value === registerForm.controls['passwordCnfrm'].value)">Passwords Match!</small><br>
             
             <button [disabled]="this.registerForm.invalid" id="submit">button</button><br>
             <p>Already have an account? <a href="">Login</a></p> 

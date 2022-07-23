@@ -6,7 +6,8 @@
             <label for="email">Email</label><br>
             <input type="text" id="email" name="mailid" formControlName="mailid"><br>
             <small style="color: red;" *ngIf="adminloginForm.controls['mailid'].touched && adminloginForm.controls['mailid'].invalid">Invalid email id!</small>
-            <small style="color: green;" *ngIf="adminloginForm.controls['mailid'].valid">Valid!</small><br><br>
+            <small style="color: green;" *ngIf="adminloginForm.controls['mailid'].valid">Valid!</small>
+            <br>
             <!-- <label for="user" style="padding-right: 40px;" >Account Type</label><br>
             <select name="" id="" name="accountType" formControlName="accountType">
                 <option value="Admin">Admin</option>
