@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>My Blogs</h1>
+    <div class="container1">
+        <div class="card bg-dark text-white aligned-card" *ngFor="let blog of myBlogs">
+            <a (click)="showBlogPage(blog._id)">
+                <img class="card-img" src="{{blog.postImage}}" alt="Card image">
+            <div class="card-img-overlay">
+              <h2 class="card-title">{{blog.title}}</h2>
+              <p class="card-text" id="description">{{blog.description}}</p>
+              <!-- <p class="card-text">Last updated 3 mins ago</p> -->
+            </div>
+            </a>
+          </div>
+        </div>
+</div>

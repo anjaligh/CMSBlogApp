@@ -11,5 +11,13 @@ logoImage="assets/logo.jpg"
 
   ngOnInit(): void {
   }
-
+  userVerify(){
+   var accountType= localStorage.getItem('accountType');
+   if (accountType==="User"){
+     return true;
+   }
+   else {
+     return false
+  }
+}
 }

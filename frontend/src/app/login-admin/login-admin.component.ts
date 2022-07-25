@@ -31,10 +31,10 @@ export class LoginAdminComponent implements OnInit {
           // console.log(res.token)
           localStorage.setItem('username', res.username)
           alert('login Successful');
-
-          // if(res.accountType=="Admin")
+          this.router.navigate(['rootuser']);
+          // if(res.accountType=="Rootuser")
           // {
-          // // this.router.navigate(['admin/adminprofile']);
+          // this.router.navigate(['rootuser']);
           // alert("Admin");
 
           // localStorage.setItem('username',res.username)

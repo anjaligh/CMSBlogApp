@@ -5,13 +5,13 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item routerLink="userlist">Users list</a>
+      <a mat-list-item routerLink="myblogs">My Blogs</a>
+      <a mat-list-item routerLink="blogpage">singleblog</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar color="danger">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -21,7 +21,13 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>frontend</span>
+      <a href="">My Blogs</a>
+      <a href="">Create Blog</a>
+      <a href="">Blogs list</a>
+      <a href="">Log Out</a>
     </mat-toolbar>
-    <app-users-list></app-users-list>
+    <!-- <app-users-list></app-users-list> -->
+    <!-- <app-my-blogs></app-my-blogs> -->
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -26,6 +26,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { MyBlogsComponent } from './my-blogs/my-blogs.component';
+import { BlogPageComponent } from './blog-page/blog-page.component';
+import { AllBlogsComponent } from './all-blogs/all-blogs.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { CreatePostComponent } from './create-post/create-post.component';
     AdminsListComponent,
     RootSidebarComponent,
     UserListComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    MyBlogsComponent,
+    BlogPageComponent,
+    AllBlogsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

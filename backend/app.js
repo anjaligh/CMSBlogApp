@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const registerData = require('./model/registerModel');
+const blogData = require('./model/blogModel');
 const cors = require('cors');
-const jwt= require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 // const multer  = require('multer');
 const bodyparser = require('body-parser');
 // const userauth = require('./routes/userauthrouter');
@@ -17,113 +18,128 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.post('/register',(req,res)=>{
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    console.log('hello backend')
-    console.log(req.body);
-    var newUser={
-        mailid: req.body.mailid,
-        username: req.body.username,
-        accountType: req.body.accountType,
-        password: req.body.password,
-        passwordCnfrm: req.body.passwordCnfrm
-    }
-var newRegisterData= new registerData(newUser)
-newRegisterData.save()
-.then((result) => {
+app.post('/register', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  console.log('hello backend')
+  console.log(req.body);
+  var newUser = {
+    mailid: req.body.mailid,
+    username: req.body.username,
+    accountType: req.body.accountType,
+    password: req.body.password,
+    passwordCnfrm: req.body.passwordCnfrm
+  }
+  var newRegisterData = new registerData(newUser)
+  newRegisterData.save()
+    .then((result) => {
 
-    res.json({ success: true, message: "User Created" })
-  }).catch(err => {
-    if (err.code === 11000) {
+      res.json({ success: true, message: "User Created" })
+    }).catch(err => {
+      if (err.code === 11000) {
 
-      return res.json({ success: false, message: "Email id already exists" })
+        return res.json({ success: false, message: "Email id already exists" })
 
 
-    }
-    return res.json({ success: false, message: "Authentication Failed" })
+      }
+      return res.json({ success: false, message: "Authentication Failed" })
 
-  })
+    })
 
-// res.send('success');
+  // res.send('success');
 })
 
-app.post('/login',(req, res) => {
-    //res.json("Hai");
-    console.log("login backend");
-    console.log(req.body);
-    registerData.find({ mailid: req.body.mailid })
-      .exec()
-      .then((result) => {
-        if (result.length < 1) {
-          return res.json({ success: false, message: "user not found" })
+app.post('/login', (req, res) => {
+  //res.json("Hai");
+  console.log("login backend");
+  console.log(req.body);
+  registerData.find({ mailid: req.body.mailid })
+    .exec()
+    .then((result) => {
+      if (result.length < 1) {
+        return res.json({ success: false, message: "user not found" })
+      }
+      const user = result[0];
+      // if (req.body.accountType!==user.accountType) {
+      //     return res.json({ success: false, message: "Account Type Mismatch!!" })
+      // }
+      // else{
+      // bcrypt.compare(req.body.password,user.password,(err, ret) => {
+      if (req.body.password === user.password) {
+        let accountType = user.accountType;
+        let username = user.username;
+        let mailid = user.mailid
+        const payload = {
+          userid: user._id
         }
-        const user = result[0];
-        // if (req.body.accountType!==user.accountType) {
-        //     return res.json({ success: false, message: "Account Type Mismatch!!" })
-        // }
-        // else{
-            // bcrypt.compare(req.body.password,user.password,(err, ret) => {
-          if (req.body.password===user.password) {
-            let accountType=user.accountType;
-            let username=user.username;
-            let mailid=user.mailid
-            const payload={
-              userid:user._id
-            }
-            const token=jwt.sign(payload,'CMSBlogApp');
-            return res.json({ success: true, message: "Login successful", token:token, accountType:accountType,username:username,mailid:mailid})
-            
-          }
-          else {
-            return res.json({ success: false, message: "Password not matched" })
-          }
-        // })
-        // }
-        
-      }).catch(err => {
-        res.json({ success: false, message: "Auth Failed" })
-      });
-  })
+        const token = jwt.sign(payload, 'CMSBlogApp');
+        return res.json({ success: true, message: "Login successful", token: token, accountType: accountType, username: username, mailid: mailid })
 
-  app.post('/createpost',(req,res)=>{
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    console.log('hello backend')
-    console.log(req.body);
-    var newUser={
-        mailid: req.body.mailid,
-        username: req.body.username,
-        accountType: req.body.accountType,
-        password: req.body.password,
-        passwordCnfrm: req.body.passwordCnfrm
-    }
-var newRegisterData= new registerData(newUser)
-newRegisterData.save()
-.then((result) => {
+      }
+      else {
+        return res.json({ success: false, message: "Password not matched" })
+      }
+      // })
+      // }
 
-    res.json({ success: true, message: "User Created" })
-  }).catch(err => {
-    if (err.code === 11000) {
+    }).catch(err => {
+      res.json({ success: false, message: "Auth Failed" })
+    });
+})
 
-      return res.json({ success: false, message: "Email id already exists" })
+app.post('/createpost', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  console.log('hello backend')
+  console.log(req.body);
+  var newBlog = {
+    mailid: req.body.mailid,
+    username: req.body.username,
+    accountType: req.body.accountType,
+    title: req.body.title,
+    category: req.body.category,
+    postImage: req.body.postImage,
+    description: req.body.description
+  }
+  var newBlogData = new blogData(newBlog)
+  newBlogData.save()
+    .then((result) => {
 
+      res.json({ success: true, message: "Blog data added" })
+    }).catch(err => {
 
-    }
-    return res.json({ success: false, message: "Authentication Failed" })
+      return res.json({ success: false, message: "Couldn't save data. Please try again" })
 
-  })
-
-// res.send('success');
+    })
 })
 
 
+app.get('/getmyblogs/:mailid',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  const mailid=req.params.mailid
+  blogData.find({ "mailid": mailid })
+      .then((blogs) => {
+          console.log(blogs)
+          res.send(blogs)
+      });
+});
+app.get('/getsingleblog/:id',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  const id=req.params.id
+  blogData.find({ "_id": id })
+      .then((blog) => {
+          console.log(blog)
+          res.send(blog)
+      });
+});
 
 
 
-const PORT=process.env.PORT||3001;
-app.listen(PORT,()=>{
-    console.log(`Listening to port ${PORT}`);
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Listening to port ${PORT}`);
 });
 
 // app.listen(3000, function () {

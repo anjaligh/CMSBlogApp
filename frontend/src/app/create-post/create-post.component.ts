@@ -21,7 +21,7 @@ export class CreatePostComponent implements OnInit {
     username: [this.username],
     accountType: [this.type],
     title: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{4,32}$')]],
-    category:['',[Validators.required]],
+    category:['Travel',[Validators.required]],
     postImage: ['', [Validators.required]],
     description: ['',[Validators.required, Validators.pattern('^[a-zA-Z ]{4,10000}$')]]
   })
@@ -29,7 +29,8 @@ export class CreatePostComponent implements OnInit {
   createPost(){
 console.log(this.createPostForm.value)
 this.blogData.createPost(this.createPostForm.value).subscribe(res=>{
-  console.log(res);
+  console.log("res.message");
+  console.log(res.message);
 })
 
 

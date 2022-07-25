@@ -6,29 +6,45 @@
       </button>
       <img src="{{logoImage}}" alt="logo" width="50px" height="50px">
       <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" routerLink=" " routerLinkActive="active1">Home</a>
+            <a class="nav-link" routerLink="" *ngIf="!auth.loggedIn()" routerLinkActive="active1">Home</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" routerLink="myblogs" *ngIf="auth.loggedIn()" routerLinkActive="active1">My Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login" *ngIf="auth.loggedIn()" routerLinkActive="active1">Create</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="allblogs" *ngIf="auth.loggedIn()" routerLinkActive="active1">Read</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="rootuser" *ngIf="auth.loggedIn() && !auth.userVerify()" routerLinkActive="active1">Dash Board</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="userprofile" *ngIf="auth.userVerify()" routerLinkActive="active1">Profile</a>
+          </li>
+          <!-- <li class="nav-item">
             <a class="nav-link" routerLink="rootuser" routerLinkActive="active1">Rootuser</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="login" routerLinkActive="active1">Disabled</a>
-          </li>
+          </li> -->
         </ul>
-          <button class="btn" type="button" routerLink="login" routerLinkActive="active1">Login</button>
-          <button class="btn" type="button"routerLink="register" routerLinkActive="active1">Register</button>
-          <ul class="navbar-nav">
+          <button class="btn" type="button" routerLink="adminlogin"  *ngIf="!auth.loggedIn()" routerLinkActive="active1">Login</button>
+          <button class="btn" type="button"routerLink="register" *ngIf="!auth.loggedIn()" routerLinkActive="active1">Register</button>
+          <button class="btn" type="button"routerLink="" *ngIf="auth.loggedIn()" (click)="logOut()">Log-out</button>
+          <!-- <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="dropdown-toggle btn" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administration</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" routerLink="adminlogin" routerLinkActive="active1">Login</a></li>
-                  <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
               </li>
-          </ul>
+          </ul> -->
          
           <!-- <button class="btn btn-outline-success" type="button" routerLink="loginadmin" routerLinkActive="active1">Administration</button> -->
       </div>
