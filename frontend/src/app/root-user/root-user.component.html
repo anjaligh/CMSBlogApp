@@ -4,7 +4,7 @@
               <img src="{{logoImage}}" width="50px" height="50px">
         </div>
     <a class="active"routerLink="">Profile</a>
-    <a class="inactive"routerLink="#Parcel">Users List</a>
+    <a class="inactive"routerLink="#Parcel" *ngIf="auth.rootUserVerify()">Users List</a>
     <a class="inactive"routerLink="#contact">Categories</a>
     <!-- <a class="inactive"routerLink="employees">adsad</a>
     <a class="inactive"routerLink="#about">sdd</a>

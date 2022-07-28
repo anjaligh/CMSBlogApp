@@ -135,7 +135,28 @@ app.get('/getsingleblog/:id',(req, res) => {
       });
 });
 
-
+app.put('/editblog',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id,
+  //profileId= req.body.profileId,
+  mailid= req.body.mailid,
+    username= req.body.username,
+    accountType= req.body.accountType,
+    title= req.body.title,
+    category= req.body.category,
+    postImage= req.body.postImage,
+    description=req.body.description
+    blogData.findByIdAndUpdate({"_id":id},
+                              {$set:{
+                                //"profileId":productId,
+                                "title":title,
+                                "category":category,
+                               "postImage":postImage,
+                               "description":description}})
+ .then(function(){
+  res.json({ success: true, message: "Blog data updated successfully" });
+ })
+})
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

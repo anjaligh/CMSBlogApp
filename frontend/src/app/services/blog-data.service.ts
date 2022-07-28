@@ -17,4 +17,7 @@ export class BlogDataService {
   getSingleBlog(id:any){
     return this.http.get('http://localhost:3001/getsingleblog/'+id)
   }
+  editBlog(blogdata:any){
+    return this.http.put('http://localhost:3001/editblog',blogdata)
+  }
 }

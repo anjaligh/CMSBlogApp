@@ -19,4 +19,13 @@ export class AuthService {
       return false
    }
  }
+ rootUserVerify(){
+  var accountType= localStorage.getItem('accountType');
+  if (accountType==="Rootuser"){
+    return true;
+  }
+  else {
+    return false
+ }
+}
 }

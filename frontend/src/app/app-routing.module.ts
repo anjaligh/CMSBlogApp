@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllBlogsComponent } from './all-blogs/all-blogs.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
+import { CreatePostComponent } from './create-post/create-post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { LoginComponent } from './login/login.component';
@@ -21,7 +23,9 @@ const routes: Routes = [
   {path:'userlist',component:UserListComponent},
   {path:'myblogs',component:MyBlogsComponent},
   {path:'allblogs',component:AllBlogsComponent},
-  {path:'userprofile',component:UserProfileComponent}
+  {path:'userprofile',component:UserProfileComponent},
+  {path:'createblog',component:CreatePostComponent},
+  {path:'editpost',component:EditPostComponent}
   
 ];
 

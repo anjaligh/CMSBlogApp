@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlogModel } from '../services/BlogModel';
 import { BlogDataService } from '../services/blog-data.service';
 import { Router } from '@angular/router';
+// import { faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-my-blogs',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MyBlogsComponent implements OnInit {
 myBlogs:BlogModel[]=[];
+// faTrashCan=faTrashCan;
 
 
   constructor(private blogdata:BlogDataService, private router:Router) { }

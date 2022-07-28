@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,8 @@ import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
 import { AllBlogsComponent } from './all-blogs/all-blogs.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
+// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MyBlogsComponent,
     BlogPageComponent,
     AllBlogsComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

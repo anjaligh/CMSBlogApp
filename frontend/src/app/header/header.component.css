@@ -1,9 +1,10 @@
-.navbar{
-}
+/* .navbar{
+} */
 .container1{
     padding-left: 2vw;
     padding-right: 2vw;
     background-color: aqua;
+    z-index: 1;
 }
 .active1{
     color: rgb(0, 0, 0);

@@ -18,9 +18,9 @@ a{
     line-height: 40px;
     margin: 2px;
 }
-/* a:hover{
+a:hover{
     background-color: aliceblue;
-} */
+}
 .right{
     width: 83.9vw;
     height: 80vh;

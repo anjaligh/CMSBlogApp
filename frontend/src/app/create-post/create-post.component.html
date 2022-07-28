@@ -3,19 +3,20 @@
         
         <form id="form-reg" [formGroup]="createPostForm" (ngSubmit)="createPost()">
             <h1>Create Post</h1><br>
+            <p>{{message}}</p>
             <label for="posttitle">Title</label><br>
-            <input type="text" id="posttitle" name="title" formControlName="title" accept="image/*"><br>
+            <input type="text" id="posttitle" name="title" formControlName="title" ><br>
             <small style="color: red;" *ngIf="createPostForm.controls['title'].touched && createPostForm.controls['title'].invalid">Invalid title!</small>
             <small style="color: green;" *ngIf="createPostForm.controls['title'].valid">Valid!</small>
             <br>
             
             <label for="postImage">Image</label><br>
-            <input type="file" id="post-image" name="postImage" formControlName="postImage"><br>
+            <input type="file" id="post-image" name="postImage" formControlName="postImage"accept="image/*"><br>
             <small style="color: red;"*ngIf="createPostForm.controls['postImage'].touched && createPostForm.controls['postImage'].invalid">Please select a file!</small>
             <small style="color: green;"*ngIf="createPostForm.controls['postImage'].valid">Valid!</small><br>
             
             <label for="category" style="padding-right: 40px;" >Blog Category</label><br>
-            <select name="category" id="category"name="category" formControlName="accountType">
+            <select name="category" id="category"name="category" formControlName="category">
                 <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
             </select><br><br>
             <!-- <div class="form-check form-check-inline">

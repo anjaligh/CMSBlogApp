@@ -10,7 +10,8 @@ import { BlogDataService } from '../services/blog-data.service';
 export class CreatePostComponent implements OnInit {
   type= localStorage.getItem('accountType');
   username= localStorage.getItem('username');
-  mailid=localStorage.getItem('mailid')
+  mailid=localStorage.getItem('mailid');
+  message='';
   categories=['Travel','Food','Film','Science and Technology','Pets'];
   constructor(private fb:FormBuilder, private blogData:BlogDataService) { }
 
@@ -23,7 +24,7 @@ export class CreatePostComponent implements OnInit {
     title: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{4,32}$')]],
     category:['Travel',[Validators.required]],
     postImage: ['', [Validators.required]],
-    description: ['',[Validators.required, Validators.pattern('^[a-zA-Z ]{4,10000}$')]]
+    description: ['',[Validators.required]]
   })
 
   createPost(){
@@ -31,6 +32,7 @@ console.log(this.createPostForm.value)
 this.blogData.createPost(this.createPostForm.value).subscribe(res=>{
   console.log("res.message");
   console.log(res.message);
+  this.message=res.message;
 })
 
 

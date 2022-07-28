@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-root-user',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RootUserComponent implements OnInit {
 logoImage="assets/logo.jpg"
-  constructor() { }
+  constructor(public auth:AuthService) { }
 
   ngOnInit(): void {
   }
