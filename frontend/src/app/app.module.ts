@@ -32,6 +32,10 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
 import { AllBlogsComponent } from './all-blogs/all-blogs.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -52,7 +56,11 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     BlogPageComponent,
     AllBlogsComponent,
     UserProfileComponent,
-    EditPostComponent
+    EditPostComponent,
+    CreateCategoryComponent,
+    AdminProfileComponent,
+    CategoriesComponent,
+    EditCategoryComponent
   ],
   imports: [
     BrowserModule,

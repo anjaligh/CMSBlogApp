@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const registerData = require('./model/registerModel');
 const blogData = require('./model/blogModel');
+const categoryData = require('./model/categoryModel');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 // const multer  = require('multer');
@@ -113,7 +114,38 @@ app.post('/createpost', (req, res) => {
     })
 })
 
+app.post('/createcategory', (req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  console.log('hello backend')
+  console.log(req.body);
+  var newCategory= {
+    categoryDescription: req.body.categoryDescription,
+    categoryImage: req.body.categoryImage,
+    categoryName: req.body.categoryName
+  }
 
+  var newCategoryData = new categoryData(newCategory)
+  newCategoryData.save()
+    .then((result) => {
+
+      res.json({ success: true, message: "Category added successfully" })
+    }).catch(err => {
+
+      return res.json({ success: false, message: "Couldn't save data. Please try again" })
+
+    })
+})
+
+app.get('/getcategories',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+  categoryData.find({})
+      .then((categories) => {
+          console.log(categories)
+          res.send(categories)
+      });
+});
 app.get('/getmyblogs/:mailid',(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
@@ -157,6 +189,18 @@ app.put('/editblog',(req,res)=>{
   res.json({ success: true, message: "Blog data updated successfully" });
  })
 })
+
+
+app.delete('/remove/:id',(req,res)=>{
+   
+  id = req.params.id;
+  blogData.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.json({ success: true, message: "Blog deleted successfully!" });
+  })
+})
+
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {

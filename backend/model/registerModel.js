@@ -1,5 +1,6 @@
 const mongoose= require('mongoose');
-mongoose.connect('mongodb://localhost:27017/CMSBlogDB');
+// mongoose.connect('mongodb://localhost:27017/CMSBlogDB');
+mongoose.connect('mongodb+srv://anjali:anjali1@anjali.5ol6pxz.mongodb.net/CMSBlogDB?retryWrites=true&w=majority');
 const Schema= mongoose.Schema
 
 

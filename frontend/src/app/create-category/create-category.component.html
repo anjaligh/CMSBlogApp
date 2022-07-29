@@ -1,0 +1,37 @@
+<div class="container1">
+    <div class="form-box">
+        
+        <form id="form-reg" [formGroup]="createCategoryForm" (ngSubmit)="createCategory()">
+            <h1>Create Category</h1><br>
+            <p>{{message}}</p>
+            <label for="posttitle">Category Name</label><br>
+            <input type="text" id="posttitle" name="categoryName" formControlName="categoryName" ><br>
+            <small style="color: red;" *ngIf="createCategoryForm.controls['categoryName'].touched && createCategoryForm.controls['categoryName'].invalid">Invalid category name!</small>
+            <small style="color: green;" *ngIf="createCategoryForm.controls['categoryName'].valid">Valid!</small>
+            <br>
+            
+            <label for="posttitle">Category Image</label><br>
+            <input type="text" id="post-image" placeholder="Paste an Image url" name="categoryImage" formControlName="categoryImage" ><br>
+            <small style="color: red;" *ngIf="createCategoryForm.controls['categoryImage'].touched && createCategoryForm.controls['categoryImage'].invalid">Invalid category name!</small>
+            <small style="color: green;" *ngIf="createCategoryForm.controls['categoryImage'].valid">Valid!</small>
+            <br>
+            <!-- <label for="postImage">Image</label><br>
+            <input type="file" id="post-image" name="postImage" formControlName="postImage"accept="image/*"><br>
+            <small style="color: red;"*ngIf="createPostForm.controls['postImage'].touched && createPostForm.controls['postImage'].invalid">Please select a file!</small>
+            <small style="color: green;"*ngIf="createPostForm.controls['postImage'].valid">Valid!</small><br>
+             -->
+
+            <label for="description">Description</label><br>
+            <textarea name="categoryDescription" id="description"formControlName="categoryDescription"></textarea><br>
+            <!-- <input type="password" id="description" name="password" formControlName="password"><br> -->
+            <small style="color: red;"*ngIf="createCategoryForm.controls['categoryDescription'].touched && createCategoryForm.controls['categoryDescription'].invalid">Invalid Description!</small>
+            <small style="color: green;"*ngIf="createCategoryForm.controls['categoryDescription'].valid">Valid!</small><br>
+            
+        
+            <button [disabled]="this.createCategoryForm.invalid" id="submit">button</button><br>
+        </form>
+    </div>
+    
+</div>
+
+

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MyBlogsComponent implements OnInit {
 myBlogs:BlogModel[]=[];
+id:any;
 // faTrashCan=faTrashCan;
 
 
@@ -27,5 +28,11 @@ this.blogdata.getMyBlogs(mailid).subscribe(res=>{
     localStorage.setItem("_id",_id);
 this.router.navigate(['/blogpage']);
     
+  }
+  deleteBlog(id:any){
+    this.blogdata.deleteBlog(id).subscribe(res=>{
+      alert(JSON.parse(JSON.stringify(res)).message)
+      this.router.navigate(['myblogs']);
+    })
   }
 }

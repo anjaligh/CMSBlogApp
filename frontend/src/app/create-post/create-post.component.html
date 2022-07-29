@@ -17,7 +17,7 @@
             
             <label for="category" style="padding-right: 40px;" >Blog Category</label><br>
             <select name="category" id="category"name="category" formControlName="category">
-                <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+                <option *ngFor="let category of categories" value="{{category.categoryName}}">{{category.categoryName}}</option>
             </select><br><br>
             <!-- <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BlogDataService } from '../services/blog-data.service';
+import { CategoryModel } from '../services/CategoryModel';
 
 @Component({
   selector: 'app-create-post',
@@ -8,14 +9,18 @@ import { BlogDataService } from '../services/blog-data.service';
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent implements OnInit {
+  categories:CategoryModel[]=[];
   type= localStorage.getItem('accountType');
   username= localStorage.getItem('username');
   mailid=localStorage.getItem('mailid');
   message='';
-  categories=['Travel','Food','Film','Science and Technology','Pets'];
+  // categories=['Travel','Food','Film','Science and Technology','Pets'];
   constructor(private fb:FormBuilder, private blogData:BlogDataService) { }
 
   ngOnInit(): void {
+    this.blogData.getCategories().subscribe(res=>{
+      this.categories=JSON.parse(JSON.stringify(res))
+    })
   }
   createPostForm = this.fb.group({
     mailid: [this.mailid],

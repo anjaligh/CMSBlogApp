@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { AllBlogsComponent } from './all-blogs/all-blogs.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { CreateCategoryComponent } from './create-category/create-category.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +21,13 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'adminlogin',component:LoginAdminComponent},
-  {path:'rootuser',component:RootUserComponent},
+  {path:'rootuser',component:RootUserComponent, children:
+            [
+              {path:'createcategory',component:CreateCategoryComponent},
+              {path:'adminprofile',component:AdminProfileComponent},
+              {path:'categories',component:CategoriesComponent}
+            ]
+          },
   {path:'blogpage', component:BlogPageComponent},
   {path:'userlist',component:UserListComponent},
   {path:'myblogs',component:MyBlogsComponent},
@@ -26,6 +35,7 @@ const routes: Routes = [
   {path:'userprofile',component:UserProfileComponent},
   {path:'createblog',component:CreatePostComponent},
   {path:'editpost',component:EditPostComponent}
+  
   
 ];
 
