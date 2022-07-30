@@ -108,7 +108,7 @@ app.post('/createpost', (req, res) => {
 
       res.json({ success: true, message: "Blog data added" })
     }).catch(err => {
-
+      
       return res.json({ success: false, message: "Couldn't save data. Please try again" })
 
     })
@@ -131,7 +131,12 @@ app.post('/createcategory', (req, res) => {
 
       res.json({ success: true, message: "Category added successfully" })
     }).catch(err => {
+      if (err.code === 11000) {
 
+        return res.json({ success: false, message: "Category already exists" })
+
+
+      }
       return res.json({ success: false, message: "Couldn't save data. Please try again" })
 
     })
@@ -146,6 +151,31 @@ app.get('/getcategories',(req, res) => {
           res.send(categories)
       });
 });
+
+app.get('/userslist',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  registerData.find({"mailid": { $ne: "rootuser@mail.com" }})
+      .then((users) => {
+          console.log(users)
+          res.send(users)
+      });
+});
+
+app.put('/editprivilage',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id,
+  //profileId= req.body.profileId,
+    accountType= req.body.accountType,
+    
+    registerData.findByIdAndUpdate({"_id":id},
+                              {$set:{
+                                //"profileId":productId,
+                                "accountType":accountType}})
+ .then(function(){
+  res.json({ success: true, message: "User privilage updated successfully" });
+ })
+})
 app.get('/getmyblogs/:mailid',(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
@@ -156,6 +186,18 @@ app.get('/getmyblogs/:mailid',(req, res) => {
           res.send(blogs)
       });
 });
+
+app.get('/findcategory/:category',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  const category=req.params.category
+  blogData.find({ "category": category })
+      .then((blogs) => {
+          console.log(blogs)
+          res.send(blogs)
+      });
+});
+
 app.get('/getsingleblog/:id',(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
@@ -190,7 +232,47 @@ app.put('/editblog',(req,res)=>{
  })
 })
 
+app.get('/getsinglecategory/:id',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  const id=req.params.id
+  console.log("backendID");
+  console.log(id);
+  categoryData.find({ "_id": id })
+      .then((category) => {
+          console.log("category")
+          console.log(category)
+          res.send(category)
+      });
+});
+app.put('/editcategory',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id,
+  //profileId= req.body.profileId,
+  categoryDescription= req.body.categoryDescription,
+  categoryImage= req.body.categoryImage,
+  categoryName= req.body.categoryName
+    categoryData.findByIdAndUpdate({"_id":id},
+                              {$set:{
+                                //"profileId":productId,
+                                "categoryName":categoryName,
+                                "categoryImage":categoryImage,
+                               "categoryDescription":categoryDescription,
+                               }})
+ .then(function(){
+  res.json({ success: true, message: "Category updated successfully" });
+ })
+})
 
+app.delete('/removecategory/:id',(req,res)=>{
+   
+  id = req.params.id;
+  categoryData.findByIdAndDelete({"_id":id})
+  .then(()=>{
+      console.log('success')
+      res.json({ success: true, message: "Category deleted successfully!" });
+  })
+})
 app.delete('/remove/:id',(req,res)=>{
    
   id = req.params.id;

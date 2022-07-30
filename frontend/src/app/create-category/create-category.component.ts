@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BlogDataService } from '../services/blog-data.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-create-category',
   templateUrl: './create-category.component.html',
@@ -8,7 +10,7 @@ import { BlogDataService } from '../services/blog-data.service';
 })
 export class CreateCategoryComponent implements OnInit {
   message='';
-  constructor(private fb:FormBuilder, private blogData:BlogDataService) { }
+  constructor(private fb:FormBuilder, private blogData:BlogDataService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -20,9 +22,10 @@ export class CreateCategoryComponent implements OnInit {
   })
   createCategory(){
     this.blogData.createCategory(this.createCategoryForm.value).subscribe(res=>{
-      alert("res.message");
+      alert(res.message);
   console.log(res.message);
   this.message=res.message;
+  this.router.navigate(['/rootuser/categories'])
     })
 console.log(this.createCategoryForm.value);
   }

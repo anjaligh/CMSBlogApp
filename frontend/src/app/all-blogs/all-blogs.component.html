@@ -1,1 +1,108 @@
-<p>all-blogs works!</p>
+<div class="container1">
+    <!-- ========================= SECTION PAGETOP ========================= -->
+    <section class="section-pagetop bg">
+      <div class="container">
+        <h2 class="title-page">{{blogsCategory}}</h2>
+        <nav>
+          <ol class="breadcrumb text-white">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Categories</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Charcoal</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- container //  -->
+    </section>
+    <!-- ========================= SECTION INTRO END// ========================= -->
+  
+    <!-- ========================= SECTION CONTENT ========================= -->
+    <section class="section-content padding-y">
+      <div class="container">
+        <div class="row">
+          <aside class="col-md-3">
+            <div class="card">
+              <article class="filter-group">
+                <header class="card-header">
+                  <h6 class="title" style="color: #e91e63">Categories</h6>
+                </header>
+                <div class="filter-content collapse show" id="collapse_1">
+                  <div class="card-body">
+                    <form class="pb-3">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Search"
+                        />
+                        <div class="input-group-append">
+                          <button class="btn btn-light" type="button">
+                            <i class="fa fa-search"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+  
+                    <ul class="list-menu">
+                      <li *ngFor="let category of categories"><a routerLink="#"  (click)="findCategory(category.categoryName)">{{category.categoryName}}</a></li>
+                    </ul>
+                  </div>
+                  <!-- card-body.// -->
+                </div>
+              </article>
+              <!-- filter-group  .// -->
+  
+              
+              <!-- filter-group .// -->
+            </div>
+            <!-- card.// -->
+          </aside>
+          <!-- col.// -->
+          <main class="col-md-9">
+            <header class="border-bottom mb-4 pb-3"></header>
+            <!-- sect-heading -->
+  
+            <div class="row">
+              <div class="col-md-4"*ngFor="let blog of categoryBlogs" >
+                  <figure class="card card-product-grid" >
+                      <div class="img-wrap">
+                        <button type="button"  (click)="deleteBlog(blog._id)" *ngIf="auth.loggedIn() && !auth.userVerify()"class="badge badge-danger"> Delete </button>
+                          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80">
+                      </div> <!-- img-wrap.// -->
+                      <figcaption class="info-wrap">
+                          <div class="fix-height">
+                              <a routerLink="#" class="title">{{blog.title}}</a>
+                              <div class="price-wrap mt-2">
+                                  <span class="price">{{blog.description}}</span>
+                                  <!-- <del class="price-old">Rs 1980</del> -->
+                              </div> <!-- price-wrap.// -->
+                          </div>
+                          <a  class="btn btn-block btn-primary" (click)="showBlogPage(blog._id)">View Details</a>
+                      </figcaption>
+                  </figure>
+              </div> <!-- col.// -->
+          </div> <!-- row end.// -->
+          
+          
+          <!-- <nav aria-label="Page navigation sample">
+            <ul class="pagination">
+              <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav> -->
+          
+              </main> <!-- col.// -->
+          
+          </div>
+          
+          </div> <!-- container .//  -->
+          </section>
+          <!-- ========================= SECTION CONTENT END// ========================= -->
+          
+          <!-- ========================= FOOTER ========================= -->
+          <!-- ========================= FOOTER END // ========================= -->
+  </div>
+  
+  

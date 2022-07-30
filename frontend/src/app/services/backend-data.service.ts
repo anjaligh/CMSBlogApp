@@ -15,4 +15,10 @@ export class BackendDataService {
     console.log("login backenddataservice");
     return this.http.post('http://localhost:3001/login',loginData)
   }
+  getUsers(){
+    return this.http.get('http://localhost:3001/userslist')
+  }
+  changePrivilage(editedUserdata:any){
+    return this.http.put('http://localhost:3001/editprivilage',editedUserdata)
+  }
 }

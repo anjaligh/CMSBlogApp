@@ -36,7 +36,7 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -79,6 +79,7 @@ import { EditCategoryComponent } from './edit-category/edit-category.component';
     MatSortModule,
     FormsModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

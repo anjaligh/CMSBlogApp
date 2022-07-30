@@ -24,11 +24,25 @@ export class BlogDataService {
   getSingleBlog(id:any){
     return this.http.get('http://localhost:3001/getsingleblog/'+id)
   }
+  getSingleCategory(id:any){
+    console.log('getsinglecategory')
+    console.log(id)
+    return this.http.get('http://localhost:3001/getsinglecategory/'+id)
+  }
+  editcategory(categorydata:any){
+    return this.http.put('http://localhost:3001/editcategory',categorydata)
+  }
+  deleteCategory(id:any){
+    return this.http.delete("http://localhost:3001/removecategory/"+id)
+  }
   editBlog(blogdata:any){
     return this.http.put('http://localhost:3001/editblog',blogdata)
   }
   deleteBlog(id:any){
     return this.http.delete("http://localhost:3001/remove/"+id)
   }
-  
+  findCategory(category:any){
+    console.log("category "+category);
+    return this.http.get('http://localhost:3001/findcategory/'+category)
+  }
 }

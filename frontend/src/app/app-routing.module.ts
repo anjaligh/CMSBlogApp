@@ -6,6 +6,7 @@ import { BlogPageComponent } from './blog-page/blog-page.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CreateCategoryComponent } from './create-category/create-category.component';
 import { CreatePostComponent } from './create-post/create-post.component';
+import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
@@ -15,6 +16,7 @@ import { RegisterComponent } from './register/register.component';
 import { RootUserComponent } from './root-user/root-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UsersListComponent } from './users-list/users-list.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -25,11 +27,13 @@ const routes: Routes = [
             [
               {path:'createcategory',component:CreateCategoryComponent},
               {path:'adminprofile',component:AdminProfileComponent},
-              {path:'categories',component:CategoriesComponent}
+              {path:'categories',component:CategoriesComponent},
+              {path:'editcategory', component:EditCategoryComponent},
+              {path:'userlist', component:UsersListComponent}
             ]
           },
   {path:'blogpage', component:BlogPageComponent},
-  {path:'userlist',component:UserListComponent},
+  // {path:'userlist',component:UserListComponent},
   {path:'myblogs',component:MyBlogsComponent},
   {path:'allblogs',component:AllBlogsComponent},
   {path:'userprofile',component:UserProfileComponent},

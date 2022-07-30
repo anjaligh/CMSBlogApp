@@ -28,4 +28,13 @@ export class AuthService {
     return false
  }
 }
+adminVerify(){
+  var accountType= localStorage.getItem('accountType');
+  if (accountType==="Admin"){
+    return true;
+  }
+  else {
+    return false
+ }
+}
 }

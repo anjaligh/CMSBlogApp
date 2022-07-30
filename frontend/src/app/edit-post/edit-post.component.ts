@@ -18,9 +18,9 @@ export class EditPostComponent implements OnInit {
   message='';
   postid= localStorage.getItem('postid');
   formData:any;
-  title='anjali';
-  description='bla bla bla'
-  category='food1'
+  // title='anjali';
+  // description='bla bla bla'
+  // category='food1'
   editPostForm = {
     _id: [this.postid],
     mailid: [this.mailid],

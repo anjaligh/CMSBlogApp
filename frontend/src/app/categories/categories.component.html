@@ -1,12 +1,12 @@
 <div class="container1">
-    <h1>Users List</h1><br>
+    <h1>Categories</h1><br>
     <div class="table-responsive-sm"id="table">
         <table class="table rounded-top">
             <thead class="thead-dark " id="thead1">
               <tr>
                 <!-- <th scope="col">#</th> -->
                 <th scope="col">Name</th>
-                <th scope="col">Description</th>
+                <th scope="col" style="width:500px ;">Description</th>
                 <th scope="col">Handle</th>
               </tr>
             </thead>
@@ -15,10 +15,11 @@
                 <!-- <td>1</td> -->
                 <td>{{category.categoryName}}</td>
                 <td>{{category.categoryDescription}}</td>
-                <td><button>Edit</button><button>Delete</button></td>
+                <td><button (click)="editCategory(category._id)">Edit</button><button (click)="deleteCategory(category._id)">Delete</button></td>
               </tr>
               
             </tbody>
+            <button type="button" (click)="addCategory()">Add Category</button>
           </table>
       </div>
 </div>

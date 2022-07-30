@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { BlogDataService } from '../services/blog-data.service';
 import { CategoryModel } from '../services/CategoryModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-post',
@@ -15,7 +16,7 @@ export class CreatePostComponent implements OnInit {
   mailid=localStorage.getItem('mailid');
   message='';
   // categories=['Travel','Food','Film','Science and Technology','Pets'];
-  constructor(private fb:FormBuilder, private blogData:BlogDataService) { }
+  constructor(private fb:FormBuilder,private router:Router, private blogData:BlogDataService) { }
 
   ngOnInit(): void {
     this.blogData.getCategories().subscribe(res=>{
@@ -26,7 +27,7 @@ export class CreatePostComponent implements OnInit {
     mailid: [this.mailid],
     username: [this.username],
     accountType: [this.type],
-    title: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]{4,32}$')]],
+    title: ['', [Validators.required]],
     category:['Travel',[Validators.required]],
     postImage: ['', [Validators.required]],
     description: ['',[Validators.required]]
@@ -36,8 +37,9 @@ export class CreatePostComponent implements OnInit {
 console.log(this.createPostForm.value)
 this.blogData.createPost(this.createPostForm.value).subscribe(res=>{
   console.log("res.message");
-  console.log(res.message);
+  alert(res.message);
   this.message=res.message;
+  this.router.navigate(['myblogs']);
 })
 
 
