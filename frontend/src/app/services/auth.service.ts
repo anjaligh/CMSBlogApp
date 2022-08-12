@@ -37,4 +37,7 @@ adminVerify(){
     return false
  }
 }
+getToken(){
+  return localStorage.getItem('token');
+}
 }

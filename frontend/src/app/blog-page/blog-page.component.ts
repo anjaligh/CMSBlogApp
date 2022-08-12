@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BlogPageComponent implements OnInit {
   blog:BlogModel[]=[];
-
+  categorycolors:[]=[];
 
   constructor(private blogdata:BlogDataService, private router:Router) { }
 

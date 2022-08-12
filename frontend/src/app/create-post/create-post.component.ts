@@ -37,7 +37,7 @@ export class CreatePostComponent implements OnInit {
 console.log(this.createPostForm.value)
 this.blogData.createPost(this.createPostForm.value).subscribe(res=>{
   console.log("res.message");
-  alert(res.message);
+  alert(res);
   this.message=res.message;
   this.router.navigate(['myblogs']);
 })

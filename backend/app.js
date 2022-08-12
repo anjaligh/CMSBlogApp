@@ -19,6 +19,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+function verifyToken(req,res,next){
+  console.log("tokenverify")
+  console.log(req.headers.authorization);
+  if(!req.headers.authorization)
+  {
+
+  return res.status(401).send('Unauthorized user');
+}
+let token= req.headers.authorization.split(' ')[1];
+console.log("token");
+console.log(token);
+if(token==null){
+  return res.status(401).send('Unauthorized user');
+}
+let payload=jwt.verify(token, 'CMSBlogApp');
+console.log(payload)
+if(!payload){
+  return res.status(401).send('Unauthorized user');
+}
+req.userId=payload.userid
+console.log("token verified")
+next()
+  }
+
 app.post('/register', (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
@@ -88,7 +112,7 @@ app.post('/login', (req, res) => {
     });
 })
 
-app.post('/createpost', (req, res) => {
+app.post('/createpost',verifyToken, (req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
   console.log('hello backend')
@@ -114,7 +138,7 @@ app.post('/createpost', (req, res) => {
     })
 })
 
-app.post('/createcategory', (req, res) => {
+app.post('/createcategory',verifyToken,(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
   console.log('hello backend')
@@ -128,7 +152,7 @@ app.post('/createcategory', (req, res) => {
   var newCategoryData = new categoryData(newCategory)
   newCategoryData.save()
     .then((result) => {
-
+console.log("added")
       res.json({ success: true, message: "Category added successfully" })
     }).catch(err => {
       if (err.code === 11000) {

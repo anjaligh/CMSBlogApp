@@ -12,6 +12,91 @@
 
 
 /*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', arial, sans-serif;
+}
+
+body {
+	overflow-x: hidden;
+	background-color: rgb(65, 148, 134);
+}
+.gradientlayer{
+    /* padding:0px;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: #000000c5;
+    z-index: 2; */
+    position: absolute;
+    /* top: 0px; */
+    width: 100vw;
+    height:70vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+.banner {
+    margin-top: 0px;
+    width: 100vw;
+    height: 70vh;
+	background-image: url("https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1380&q=80");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	text-align: center;
+    display: flex;
+ align-items: center;
+ justify-content: center;
+    z-index: -1;
+}
+.overlay{
+    z-index: 4;
+}
+.banner h4 {
+	margin-top: 0px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+	font-size: 15px;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.banner h2 {
+	font-family: 'Spectral', serif;
+	font-size: 44px;
+	font-weight: 600;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.banner p {
+	color: #fff;
+	font-size: 14px;
+}
+
+.banner .primary-button {
+	margin-top: 30px;
+}
+.blog-content{
+display: flex;
+	background-color: #ffffff;
+	height: auto;
+	padding: 30px 60px 30px 60px;
+    box-shadow: 0px 0px 10px 0px;
+    color: #000000;
+    margin-top: -110px;
+    margin-bottom: 50px;
+    align-items: center;
+    z-index: 4;
+}
+@media (max-width: 600px) {
+    .banner h2 {
+        font-size: 36px;
+        font-weight: 600;
+    }
+}
+
 
 @import url(./css/animate.min.css);
 @import url(./css/normalize.css);

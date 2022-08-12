@@ -8,10 +8,18 @@ export class BlogDataService {
 
   constructor(private http:HttpClient) { }
   createPost(data:any):Observable<any>{
-    return this.http.post('http://localhost:3001/createpost',data)
+    let headers={
+      'Authorization':"Bearer "+localStorage.getItem('token')
+    }
+    return this.http.post('http://localhost:3001/createpost',data,{headers:headers})
   }
   createCategory(data:any):Observable<any>{
-    return this.http.post('http://localhost:3001/createcategory',data)
+    console.log("servicedata")
+    console.log(data)
+    let headers={
+      'Authorization':"Bearer "+localStorage.getItem('token')
+    }
+    return this.http.post('http://localhost:3001/createcategory',data,{headers:headers})
   }
   getCategories(){
     return this.http.get('http://localhost:3001/getcategories')
