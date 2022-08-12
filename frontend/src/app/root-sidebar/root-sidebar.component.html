@@ -1,17 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav  #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="userlist">Users list</a>
+    <mat-toolbar *ngIf="auth.userVerify()">Menu</mat-toolbar>
+    <mat-nav-list *ngIf="auth.userVerify()">
+      <!-- <a mat-list-item routerLink="userlist">Users list</a>
       <a mat-list-item routerLink="myblogs">My Blogs</a>
-      <a mat-list-item routerLink="blogpage">singleblog</a>
+      <a mat-list-item routerLink="blogpage">singleblog</a> -->
+      <a mat-list-item routerLink="adminprofile">Profile</a>
+      <a mat-list-item routerLink="userlist" *ngIf="auth.rootUserVerify()">Users list</a>
+      <a mat-list-item routerLink="categories">Categories</a>
+      <!-- <a class="active"routerLink="adminprofile">Profile</a>
+      <a class="inactive"routerLink="userlist" *ngIf="auth.rootUserVerify()">Users List</a>
+      <a class="inactive"routerLink="categories">Categories</a> -->
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="danger">
+  <mat-sidenav-content class="sidenavcontent">
+  <mat-toolbar color="danger"> 
       <button
         type="button"
         aria-label="Toggle sidenav"

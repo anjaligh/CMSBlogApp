@@ -15,10 +15,10 @@
                 <td>{{i+1}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.mailid}}</td>
-                <td *ngIf="!editmode">{{user.accountType}}<button (click)="change()">Change</button></td>
-                <td *ngIf="editmode"><select id="category"name="accountType" [(ngModel)]="this.editUserForm.accountType">
+                <td *ngIf="!editmode[i]">{{user.accountType}}<button style="float: right;"(click)="change(i)">Change</button></td>
+                <td *ngIf="editmode[i]"><select id="category"name="accountType" [(ngModel)]="this.editUserForm.accountType">
                   <option *ngFor="let type of types; let i=index" value="{{type}}">{{type}}</option>
-              </select><button (click)="changePrivilage(user._id)">Update</button></td>
+              </select><button style="float: right;" (click)="changePrivilage(user._id,i)">Update</button></td>
               </tr>
             </tbody>
           </table>

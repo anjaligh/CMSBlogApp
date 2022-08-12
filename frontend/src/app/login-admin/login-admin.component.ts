@@ -31,24 +31,17 @@ export class LoginAdminComponent implements OnInit {
           // console.log(res.token)
           localStorage.setItem('username', res.username)
           alert('login Successful');
-          this.router.navigate(['rootuser']);
-          // if(res.accountType=="Rootuser")
-          // {
-          // this.router.navigate(['rootuser']);
-          // alert("Admin");
-
-          // localStorage.setItem('username',res.username)
-          // }
-          // else if(res.accountType=="User")
-          // {
-          // // this.router.navigate(['/seller/profile']);
-          // alert("User");
-          // }
-          // else if(res.accountType=="Buyer")
-          // {
-          //   this.router.navigate(['/buyer/bprofile'])
-          //   alert(res.message);
-          // }
+          if(res.accountType=="User")
+          {
+            //  alert("User");
+          this.router.navigate(['userprofile']);
+         
+          }
+          else{
+            this.router.navigate(['rootuser']);
+          }
+          
+          
         }
         else {
           alert(res.message)

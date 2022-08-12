@@ -8,11 +8,13 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { LoginComponent } from './login/login.component';
 import { MyBlogsComponent } from './my-blogs/my-blogs.component';
 import { RegisterComponent } from './register/register.component';
+import { RootSidebarComponent } from './root-sidebar/root-sidebar.component';
 import { RootUserComponent } from './root-user/root-user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -23,7 +25,9 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'login',component:LoginComponent},
   {path:'adminlogin',component:LoginAdminComponent},
-  {path:'rootuser',component:RootUserComponent, children:
+  {path:'rootuser',
+  canActivate:[AuthGuard],
+  component:RootUserComponent, children:
             [
               {path:'createcategory',component:CreateCategoryComponent},
               {path:'adminprofile',component:AdminProfileComponent},
@@ -32,6 +36,15 @@ const routes: Routes = [
               {path:'userlist', component:UsersListComponent}
             ]
           },
+  {path:'rootusersidebar',component:RootSidebarComponent , children:
+          [
+            {path:'createcategory',component:CreateCategoryComponent},
+            {path:'adminprofile',component:AdminProfileComponent},
+            {path:'categories',component:CategoriesComponent},
+            {path:'editcategory', component:EditCategoryComponent},
+            {path:'userlist', component:UsersListComponent}
+          ]
+        },
   {path:'blogpage', component:BlogPageComponent},
   // {path:'userlist',component:UserListComponent},
   {path:'myblogs',component:MyBlogsComponent},

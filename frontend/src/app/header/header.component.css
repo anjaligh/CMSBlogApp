@@ -4,7 +4,10 @@
     padding-left: 2vw;
     padding-right: 2vw;
     background-color: aqua;
-    z-index: 1;
+    z-index: 200;
+    /* position: fixed;
+    margin-top: 0px;
+    width: 100%; */
 }
 .active1{
     color: rgb(0, 0, 0);

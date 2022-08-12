@@ -8,29 +8,46 @@ import { UserModel } from '../services/UserModel';
 })
 export class UsersListComponent implements OnInit {
   Users: UserModel[] = [];
+  
   types = ['Admin', 'User'];
   constructor(private bdata: BackendDataService) { }
   editUserForm = {
     accountType: ''
   }
-  editmode = false;
-
+  editmode : boolean[]=[]; 
   ngOnInit(): void {
+    
     this.bdata.getUsers().subscribe(res => {
       this.Users = JSON.parse(JSON.stringify(res))
-      console.log(this.Users[0].accountType)
+      console.log(this.Users)
+      const tablelength=this.Users.length;
+      console.log(this.Users.length)
+      for (var i = 0; i < tablelength; i++) {
+        this.editmode.push(false);
+      }
     })
+    
+    
+  
+  console.log("boolarray");
+  console.log(this.editmode)
   }
-  changePrivilage(id: any) {
+  changePrivilage(id: any,i:any) {
     var editedUser = {
       _id: id,
       accountType: this.editUserForm.accountType
     }
     this.bdata.changePrivilage(editedUser).subscribe(res => {
-      alert(JSON.parse(JSON.stringify(res)))
+      
+      this.bdata.getUsers().subscribe(res => {
+        this.Users = JSON.parse(JSON.stringify(res))})
+        alert(JSON.parse(JSON.stringify(res)).message)
     })
+    this.editmode[i] = false;
   }
-  change(){
-    this.editmode = true;
+  change(i:any){
+    console.log(i)
+    this.editmode[i] = true;
+    console.log(this.editmode)
   }
 }

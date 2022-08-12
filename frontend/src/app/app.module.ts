@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +36,7 @@ import { CreateCategoryComponent } from './create-category/create-category.compo
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
