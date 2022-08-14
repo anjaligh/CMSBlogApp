@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BlogDataService } from '../services/blog-data.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class CreateCategoryComponent implements OnInit {
   message='';
-  constructor(private fb:FormBuilder, private blogData:BlogDataService, private router:Router) { }
+  constructor(private fb:UntypedFormBuilder, private blogData:BlogDataService, private router:Router) { }
 
   ngOnInit(): void {
   }

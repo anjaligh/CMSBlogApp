@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogModel } from '../services/BlogModel';
 import { BlogDataService } from '../services/blog-data.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -41,7 +41,7 @@ export class EditPostComponent implements OnInit {
   //   postImage: [''],
   //   description: ['']
   // }) 
-  constructor(private blogdata:BlogDataService, private fb:FormBuilder) { }
+  constructor(private blogdata:BlogDataService, private fb:UntypedFormBuilder) { }
 
   ngOnInit(): void {
   //  this.postid= localStorage.getItem('postid');

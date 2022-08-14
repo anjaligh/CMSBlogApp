@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BlogDataService } from '../services/blog-data.service';
 import { CategoryModel } from '../services/CategoryModel';
 import { Router } from '@angular/router';
@@ -16,7 +16,7 @@ export class CreatePostComponent implements OnInit {
   mailid=localStorage.getItem('mailid');
   message='';
   // categories=['Travel','Food','Film','Science and Technology','Pets'];
-  constructor(private fb:FormBuilder,private router:Router, private blogData:BlogDataService) { }
+  constructor(private fb:UntypedFormBuilder,private router:Router, private blogData:BlogDataService) { }
 
   ngOnInit(): void {
     this.blogData.getCategories().subscribe(res=>{

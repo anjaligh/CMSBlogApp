@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BackendDataService } from '../services/backend-data.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginAdminComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private bData: BackendDataService, private router: Router) { }
+  constructor(private fb: UntypedFormBuilder, private bData: BackendDataService, private router: Router) { }
 
   ngOnInit(): void {
   }

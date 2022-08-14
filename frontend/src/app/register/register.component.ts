@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BackendDataService } from '../services/backend-data.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { BackendDataService } from '../services/backend-data.service';
 export class RegisterComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private backEnd: BackendDataService
   ) { }
   submitted = false;
