@@ -43,14 +43,14 @@ export class AllBlogsComponent implements OnInit {
     this.router.navigate(['/blogpage']);
 
   }
-  deleteBlog(id:any){
-    alert('Are you sure wants to delete this Blog?')
-    this.blogData.deleteBlog(id).subscribe(res=>{
-      alert(JSON.parse(JSON.stringify(res)).message)
-      this.blogData.findCategory(this.blogsCategory).subscribe(res => {
-        console.log(res);
-        this.categoryBlogs = JSON.parse(JSON.stringify(res))
-      })
-    })
-  }
+  // deleteBlog(id:any){
+  //   alert('Are you sure wants to delete this Blog?')
+  //   this.blogData.deleteBlog(id).subscribe(res=>{
+  //     alert(JSON.parse(JSON.stringify(res)).message)
+  //     this.blogData.findCategory(this.blogsCategory).subscribe(res => {
+  //       console.log(res);
+  //       this.categoryBlogs = JSON.parse(JSON.stringify(res))
+  //     })
+  //   })
+  // }
 }

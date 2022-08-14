@@ -175,6 +175,19 @@ app.get('/getcategories',(req, res) => {
           res.send(categories)
       });
 });
+app.get('/getcategorydetails/:categoryname',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+  categoryname=req.params.categoryname
+  console.log('welcone to backend');
+  console.log(req.params.categoryname);
+  categoryData.find({"categoryName":categoryname})
+      .then((categorydetails) => {
+          console.log(categorydetails)
+          res.send(categorydetails)
+      });
+});
+
 
 app.get('/userslist',(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');

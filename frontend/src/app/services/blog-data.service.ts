@@ -24,7 +24,9 @@ export class BlogDataService {
   getCategories(){
     return this.http.get('http://localhost:3001/getcategories')
   }
-  
+  getCategorydetails(categoryname:any){
+    return this.http.get('http://localhost:3001/getcategorydetails/'+categoryname)
+  }
   getMyBlogs(mailid:any){
     console.log("usermailService "+mailid);
     return this.http.get('http://localhost:3001/getmyblogs/'+mailid)

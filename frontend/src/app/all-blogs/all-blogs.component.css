@@ -11593,8 +11593,9 @@ section.our-blog {
 }
 .blog-post img {
 	width: 50%;
-  height: 100%;
+  height: 300px;
 	overflow: hidden;
+
 }
 
 .blog-post {
@@ -11645,4 +11646,12 @@ section.our-blog {
 	left: 15px;
 	top: 0px;
 	background-color: rgba(250, 250, 250, 0.9);
+}
+.card-text{
+  line-height: 2.5ex;
+  height: 7.5ex; /* 2.5ex for each visible line */
+  overflow: hidden;
+}
+.readmore{
+  color: #008211;
 }

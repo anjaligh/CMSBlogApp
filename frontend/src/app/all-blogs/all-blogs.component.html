@@ -70,8 +70,8 @@
                       </div>
                   </div>
                   <div class="row">
-                      <div class="col-md-6">
-                          <div class="blog-post">
+                      <div class="col-md-12"*ngFor="let blog of categoryBlogs">
+                          <!-- <div class="blog-post">
                               <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80" alt="">
                               <div class="date">26 Oct 2020</div>
                               <div class="right-content">
@@ -82,9 +82,24 @@
                                       <a href="#">Continue Reading</a>
                                   </div>
                               </div>
+                          </div> -->
+                          <div class="card mb-3" style="max-width: 840px;">
+                            <div class="row g-0">
+                              <div class="col-md-4">
+                                <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80" class="img-fluid rounded-start" alt="...">
+                              </div>
+                              <div class="col-md-8">
+                                <div class="card-body">
+                                  <h5 class="card-title">{{blog.title}}</h5>
+                                  <p class="card-text">{{blog.description}}</p><button type="button" class="btn readmore" (click)="showBlogPage(blog._id)">Continue reading</button>
+                                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                  
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                      </div>
-                      <div class="col-md-6">
+                        </div>
+                      <!-- <div class="col-md-6">
                           <div class="blog-post">
                               <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80" alt="">
                               <div class="date">21 Oct 2020</div>
@@ -125,31 +140,10 @@
                                   </div>
                               </div>
                           </div>
-                      </div>
+                      </div> -->
                   </div>
               </div>
           </section>
-            <div class="row">
-              <div class="col-md-4"*ngFor="let blog of categoryBlogs" >
-                  <figure class="card card-product-grid" >
-                      <div class="img-wrap">
-                        <button type="button"  (click)="deleteBlog(blog._id)" *ngIf="auth.loggedIn() && !auth.userVerify()"class="badge badge-danger"><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-                          Delete </button>
-                          <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80">
-                      </div> <!-- img-wrap.// -->
-                      <figcaption class="info-wrap">
-                          <div class="fix-height">
-                              <a routerLink="#" class="title">{{blog.title}}</a>
-                              <div class="price-wrap mt-2">
-                                  <span class="price">{{blog.description}}</span>
-                                  <!-- <del class="price-old">Rs 1980</del> -->
-                              </div> <!-- price-wrap.// -->
-                          </div>
-                          <a  class="btn btn-block btn-primary" (click)="showBlogPage(blog._id)">View Details</a>
-                      </figcaption>
-                  </figure>
-              </div> <!-- col.// -->
-          </div> <!-- row end.// -->
           
           
           <!-- <nav aria-label="Page navigation sample">

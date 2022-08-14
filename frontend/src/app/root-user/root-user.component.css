@@ -9,18 +9,39 @@
 .sidebar {
     max-width: 250px;
     width: 100%;
-    background-color: rgb(0, 255, 85);
+    background-color: #484C7F;
     height: 80vh;
 justify-content: center;
 }
-a{
+.sidebar a{
     display: block;
     line-height: 40px;
     margin: 2px;
+    text-decoration: none;
 }
-a:hover{
+.sidebar a.active {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #F2F2F2;
+    color: black;
+    border: 1px solid #F2F2F2;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+.sidear a:hover{
     background-color: aliceblue;
 }
+.sidebar a:hover:not(.active) {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #F2F2F2;
+    color: black;
+    border: 1px solid #F2F2F2;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
 .right{
     width: 83.9vw;
     height: 80vh;
@@ -29,3 +50,64 @@ a:hover{
     overflow-x: hidden;
     
 }
+/* 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+.sidebar {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 400;
+    margin: 10px 20px;
+    padding: 0;
+    width: 200px;
+    background-color: #636D79;
+    position: fixed;
+    height:95%;
+    overflow: auto;
+  }
+  .sidebar a {
+    display: block;
+    color: white;
+    margin: 11px 0px;
+    padding: 11px 0px 11px 10px;
+    text-decoration: none;
+    text-align: left;
+  }
+
+  .sidebar a.active {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #F2F2F2;
+    color: black;
+    border: 1px solid #F2F2F2;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .sidebar a:hover:not(.active) {
+    font-family: 'Montserrat';
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #F2F2F2;
+    color: black;
+    border: 1px solid #F2F2F2;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  img{
+      height: 76px;
+      width: 76px;
+  }
+  .logo-image{
+    margin-top: 36px;
+    margin-left: 30%;
+  }
+  fa-icon{
+    float: left;
+    width: 25px;
+    height: 25px;
+    padding-left: 30px;
+    padding-right: 35px;
+  } */
