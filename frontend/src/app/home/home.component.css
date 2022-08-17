@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.container1{
+    position: absolute;
+    top: 0px;
+    margin: 0px;
+    max-height: 1000px;
+    background-image: linear-gradient(to right, #FF8E00,#FFE400);
+    z-index: -1;
+}
+.gradient1{
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 40vh;
+  background-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+  z-index: 4;
+}
+.gradient2{
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  width: 90vw;
+  height: 90vh;
+  background-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+  z-index: 4;
+}
+.gradient3{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  margin: 0px;
+  width: 70vw;
+  height: 90vh;
+  background-image: linear-gradient(to left, black, rgba(0, 0, 0, 0));
+  z-index: 4;
+}
+.gradient4{
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  width: 50vw;
+  height: 90vh;
+  background-image: linear-gradient(to right, black, rgba(0, 0, 0, 0));
+  z-index: 4;
+}
+
+.carousel{
+    width: 100vw;
+    height: 90vh;
+    float: right;
+}
+.carousel-item{
+    width: 100vw;
+    height: 90vh;
+
+}
+.img{
+  width: 100vw;
+    height: 90vh;
+    object-fit: cover;
+}
+#caption1{
+  position:absolute;
+  left: -500px;
+  top:200px;
+  color: rgb(255, 255, 255);
+  font-family: DynaPuff;
+  font-weight: 400;
+  font-size: 32px;
+  z-index: 5;
+}
+#caption2{
+  position:absolute;
+  /* left: 700px; */
+  top:200px;
+  right: -400px;
+  color: rgb(255, 255, 255);
+  font-family: DynaPuff;
+  font-weight: 400;
+  font-size: 32px;
+  z-index: 5;
+}
+#caption3{
+  position:absolute;
+  left: -500px;
+  top:200px;
+  color: rgb(255, 255, 255);
+  font-family: DynaPuff;
+  font-weight: 400;
+  font-size: 32px;
+  z-index: 5;
+}
+#svg{
+  position: relative;
+  top: -300px;
+  z-index: 7;
+  /* background-image: linear-gradient(to bottom, #FF8E00,#FFE400); */
+  /* color: #002bdc; */
+}
+.box{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutus{
+  position: absolute;
+  display: block;
+  top: 60%;
+  max-width: 90%;
+  margin-left:auto;
+  z-index: 10;
+}
+.card{
+  border: 1px solid white;
+}
+.card-header{
+  border: 1px solid white;
+  padding:2%;
+  background-color: white;
+  font-family: DynaPuff;
+  font-weight: 400;
+  font-size: 28px;
+}
+.card-body{
+  font-family: DynaPuff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 35px;
+}
+.blockquote-footer{
+  float: right;
+}
+@media (max-width:700px){
+  .carousel{
+    width: 100vw;
+    height: 80vh;
+    float: right;
+}
+.carousel-item{
+    width: 100vw;
+    height: 80vh;
+
+}
+.img{
+  width: 100vw;
+    height: 80vh;
+    object-fit: cover;
+}
+}

@@ -4,6 +4,9 @@ import { BlogDataService } from '../services/blog-data.service';
 import { Router } from '@angular/router';
 import { CategoryModel } from '../services/CategoryModel';
 import { AuthService } from '../services/auth.service';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-blog-page',
   templateUrl: './blog-page.component.html',
@@ -15,6 +18,8 @@ export class BlogPageComponent implements OnInit {
   categorycolors:[]=[];
 imageUrl:String='';
 categoryname:String='';
+faTrashCan=faTrashCan;
+faPenToSquare=faPen;
   constructor(private blogdata:BlogDataService, private router:Router,public auth:AuthService) { }
 
   ngOnInit(): void {

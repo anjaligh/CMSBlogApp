@@ -3,8 +3,11 @@
         <div class="gradientlayer"> </div>
         <section class="banner" [style.backgroundImage]="'url('+imageUrl+')'">
           
-          <div class="container-fluid">
-      
+          <div class="container-fluid" >
+            <!-- <div style="position:relative; float:right; margin-top: 1%;z-index: 40;">
+        <button class="butn" type="button" (click)="updatePost(i._id)"><fa-icon [icon]="faPenToSquare"></fa-icon></button>
+        <button class="butn" type="button" (click)="deleteBlog(i._id)" *ngIf="auth.loggedIn() && !auth.userVerify()"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+      </div> -->
               <div class="row justify-content-center">
                   <div class="col overlay">
                       <!-- <h4>Here you can find delecious foods</h4> -->
@@ -17,13 +20,14 @@
       </section>
       <div class="row justify-content-center">
         <div class="blog-content">
-          <p>asdashdasndbsndbvbnsdfsdfQuisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.Quisque nec nibh id lacus fringilla eleifend sed sit amet sem. Donec lectus odio, mollis a nisl non, tempor interdum nisl.</p>
+          <p>{{i.description}}</p>
         </div>
       </div>
       <div style="display: flex;
       align-items: center;
       justify-content: center;">
-        <button type="button" (click)="updatePost(i._id)">Edit</button><button type="button" (click)="deleteBlog(i._id)" *ngIf="auth.loggedIn() && !auth.userVerify()">Delete</button>
+        <button class="butn" type="button" (click)="updatePost(i._id)" title="Edit Blog"><fa-icon [icon]="faPenToSquare"></fa-icon></button>
+        <button class="butn" type="button" (click)="deleteBlog(i._id)" *ngIf="auth.loggedIn() && !auth.userVerify()" title="Delete Blog"><fa-icon [icon]="faTrashCan"></fa-icon></button>
       </div>
         
       

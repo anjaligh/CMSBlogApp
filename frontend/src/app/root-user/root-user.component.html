@@ -3,9 +3,10 @@
         <!-- <div class="logo-image">
               <img src="{{logoImage}}" width="50px" height="50px">
         </div> -->
-    <a class="active"routerLink="adminprofile">Profile</a>
-    <a class="inactive"routerLink="userlist" *ngIf="auth.rootUserVerify()">Users List</a>
-    <a class="inactive"routerLink="categories">Categories</a>
+    <a class="active"routerLink="adminprofile"> <fa-icon [icon]="faDeleteLeft"></fa-icon>
+        Profile</a>
+    <a class="inactive"routerLink="userlist" *ngIf="auth.rootUserVerify()"><fa-icon id="iconfa" [icon]="faUsersGear"></fa-icon>Users List</a>
+    <a class="inactive"routerLink="categories"><fa-icon [icon]="faLayerGroup"></fa-icon>Categories</a>
     <!-- <a class="inactive"routerLink="employees">adsad</a>
     <a class="inactive"routerLink="#about">sdd</a>
     <a class="inactive"routerLink="#about">adad</a> -->

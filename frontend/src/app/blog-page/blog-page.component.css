@@ -26,7 +26,10 @@ body {
     position: absolute;
     top: 0px;
     z-index: -1;
-    background-color: #BCFFB9;
+    background-color: white;
+    /* background-image: url('https://images.unsplash.com/photo-1516796181074-bf453fbfa3e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: bottom; */
 }
 .gradientlayer {
     /* padding:0px;
@@ -94,7 +97,10 @@ body {
 
 .blog-content {
     display: flex;
-    background-color: #ffffff;
+    background-color: #531837;
+    /* background-image: url('https://images.unsplash.com/photo-1487147264018-f937fba0c817?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+    background-size: cover;
+    background-position: bottom; */
     width:70% ;
     height: auto;
     padding: 30px 60px 30px 60px;
@@ -105,7 +111,22 @@ body {
     align-items: center;
     z-index: 4;
 }
+.blog-content p{
+    color: white;
+    font-family: Poppins;
+    font-size: 16px;
+    line-height: 24px;
 
+}
+.butn{
+    width: 30px;
+    margin: 0px 10px 40px 10px;
+    background-color: #FA9905;
+    border: 1px solid #FA9905;
+    color: white;
+    border-radius: 8px;
+    height: 30px;
+}
 @media (max-width: 700px) {
     .banner h2 {
         padding: 1%;

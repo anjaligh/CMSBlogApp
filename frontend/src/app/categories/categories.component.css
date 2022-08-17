@@ -17,6 +17,9 @@ h1{
 table th{
     background-color: rgb(60, 143, 143);
 }
+table td{
+    background-color: rgb(255, 255, 255);
+}
 table th:first-child{
     border-radius:8px 0 0 0px;
   }
@@ -26,3 +29,31 @@ table th:first-child{
     
   }
   
+  .btn-edit{
+    width: 80px;
+    margin: 0px 10px 0px 10px;
+    background-color: #FA9905;
+    border: 1px solid #FA9905;
+    color: white;
+    border-radius: 8px;
+    height: 30px;
+}
+.btn-delete{
+    width: 80px;
+    margin: 0px 10px 0px 10px;
+    background-color: #fa0557;
+    border: 1px solid #fa0557;
+    color: white;
+    border-radius: 8px;
+    height: 30px;
+}
+.btn-add{
+    width: 30px;
+    /* margin: 0px 10px 0px 10px; */
+    background-color: #fa9805;
+    border: 1px solid #fa980500;
+    color: #ffffff;
+    font-size: large;
+    border-radius: 50%;
+    height: 30px;
+}

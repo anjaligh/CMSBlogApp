@@ -383,6 +383,7 @@ article:after,
 
 .title-page {
   color: #212529;
+  text-transform: capitalize;
 }
 
 .text-lg {
@@ -5982,34 +5983,8 @@ input[type=button].btn-block {
   margin-bottom: -1px;
 }
 
-.breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 0;
-  margin-bottom: 0;
-  list-style: none;
-  background-color: transparent;
-  border-radius: 0.37rem;
-}
 
-.breadcrumb-item + .breadcrumb-item {
-  padding-left: 0.5rem;
-}
-.breadcrumb-item + .breadcrumb-item::before {
-  display: inline-block;
-  padding-right: 0.5rem;
-  color: #545454;
-  content: "/";
-}
-.breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: underline;
-}
-.breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: none;
-}
-.breadcrumb-item.active {
-  color: #545454;
-}
+
 
 .pagination {
   display: flex;
@@ -11585,10 +11560,11 @@ section.our-blog {
 	text-align: center;
 	margin-top: 0px;
 	margin-bottom: 80px;
+  font-family:Arial, Helvetica, sans-serif;
 	font-size: 22px;
 	font-weight: 700;
 	letter-spacing: 0.5px;
-	text-transform: uppercase;
+	text-transform: capitalize;
 	color: #121212;
 }
 .blog-post img {

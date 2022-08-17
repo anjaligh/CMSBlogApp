@@ -187,7 +187,18 @@ app.get('/getcategorydetails/:categoryname',(req, res) => {
           res.send(categorydetails)
       });
 });
-
+app.get('/userprofile/:mailid',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+  mailid=req.params.mailid
+  console.log('welcone to backend');
+  console.log(req.params.mailid);
+  registerData.find({"mailid":mailid})
+      .then((userprofile) => {
+          console.log(userprofile)
+          res.send(userprofile)
+      });
+});
 
 app.get('/userslist',(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');

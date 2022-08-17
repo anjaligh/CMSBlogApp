@@ -18,6 +18,9 @@ export class BackendDataService {
   getUsers(){
     return this.http.get('http://localhost:3001/userslist')
   }
+  getUserProfile(mailid:any){
+    return this.http.get('http://localhost:3001/userprofile/'+mailid)
+  }
   changePrivilage(editedUserdata:any){
     return this.http.put('http://localhost:3001/editprivilage',editedUserdata)
   }

@@ -29,6 +29,7 @@
               </div><br> -->
             <label for="description">Description</label><br>
             <textarea name="description" id="description"formControlName="description"></textarea><br>
+            <textarea class="form-control" rows="5" id="comment" formControlName="description"></textarea>
             <!-- <input type="password" id="description" name="password" formControlName="password"><br> -->
             <small style="color: red;"*ngIf="createPostForm.controls['description'].touched && createPostForm.controls['description'].invalid">Invalid Description!</small>
             <small style="color: green;"*ngIf="createPostForm.controls['description'].valid">Valid!</small><br>
