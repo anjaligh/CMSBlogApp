@@ -8,20 +8,12 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-logoImage="assets/logo.jpg"
-containername="container1";
+logoImage="assets/logopc2.png"
+containername:any;
   constructor(private bdata:BackendDataService, public auth:AuthService) { }
 
-  ngOnInit(): void {
-    var logstatus=this.auth.loggedIn();
-    if(logstatus== true){
-      this.containername="container2";
-      console.log("container2")
-    }
-    if(logstatus== false){
-      this.containername="container1";
-      console.log("container1")
-    }
+  ngOnInit(): void { 
+    this.containername=localStorage.getItem('containername')
   }
   logOut(){
     localStorage.removeItem('token');

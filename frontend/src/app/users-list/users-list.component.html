@@ -1,5 +1,5 @@
 <div class="container1">
-    <h1>Users List</h1><br>
+    <br><h1>Users List</h1><br>
     <div class="table-responsive-sm"id="table">
         <table class="table rounded-top">
             <thead class="thead-dark " id="thead1">
@@ -15,10 +15,10 @@
                 <td>{{i+1}}</td>
                 <td>{{user.username}}</td>
                 <td>{{user.mailid}}</td>
-                <td *ngIf="!editmode[i]">{{user.accountType}}<button style="float: right;"(click)="change(i)">Change</button></td>
+                <td *ngIf="!editmode[i]">{{user.accountType}}<button class="btn-edit" style="float: right;"(click)="change(i)"><fa-icon [icon]="faPen"></fa-icon>Change</button></td>
                 <td *ngIf="editmode[i]"><select id="category"name="accountType" [(ngModel)]="this.editUserForm.accountType">
                   <option *ngFor="let type of types; let i=index" value="{{type}}">{{type}}</option>
-              </select><button style="float: right;" (click)="changePrivilage(user._id,i)">Update</button></td>
+              </select><button class="btn-update" style="float: right;" (click)="changePrivilage(user._id,i)">Update</button></td>
               </tr>
             </tbody>
           </table>

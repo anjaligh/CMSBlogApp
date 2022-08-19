@@ -15,6 +15,8 @@ export class CreatePostComponent implements OnInit {
   username= localStorage.getItem('username');
   mailid=localStorage.getItem('mailid');
   message='';
+  postdate = new Date();
+
   // categories=['Travel','Food','Film','Science and Technology','Pets'];
   constructor(private fb:UntypedFormBuilder,private router:Router, private blogData:BlogDataService) { }
 
@@ -30,14 +32,16 @@ export class CreatePostComponent implements OnInit {
     title: ['', [Validators.required]],
     category:['Travel',[Validators.required]],
     postImage: ['', [Validators.required]],
-    description: ['',[Validators.required]]
+    description: ['',[Validators.required]],
+    postdate:[this.postdate]
   })
 
   createPost(){
+    console.log("this.createPostForm.value")
 console.log(this.createPostForm.value)
 this.blogData.createPost(this.createPostForm.value).subscribe(res=>{
   console.log("res.message");
-  alert(res);
+  alert(JSON.parse(JSON.stringify(res)).message);
   this.message=res.message;
   this.router.navigate(['myblogs']);
 })

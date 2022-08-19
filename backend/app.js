@@ -124,7 +124,8 @@ app.post('/createpost',verifyToken, (req, res) => {
     title: req.body.title,
     category: req.body.category,
     postImage: req.body.postImage,
-    description: req.body.description
+    description: req.body.description,
+    postdate:req.body.postdate
   }
   var newBlogData = new blogData(newBlog)
   newBlogData.save()
@@ -267,14 +268,16 @@ app.put('/editblog',(req,res)=>{
     title= req.body.title,
     category= req.body.category,
     postImage= req.body.postImage,
-    description=req.body.description
+    description=req.body.description,
+    postdate=req.body.postdate
     blogData.findByIdAndUpdate({"_id":id},
                               {$set:{
                                 //"profileId":productId,
                                 "title":title,
                                 "category":category,
                                "postImage":postImage,
-                               "description":description}})
+                               "description":description,
+                              "postdate":postdate}})
  .then(function(){
   res.json({ success: true, message: "Blog data updated successfully" });
  })

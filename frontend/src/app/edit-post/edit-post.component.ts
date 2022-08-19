@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogModel } from '../services/BlogModel';
+import { CategoryModel } from '../services/CategoryModel';
 import { BlogDataService } from '../services/blog-data.service';
 import { UntypedFormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-edit-post',
@@ -11,11 +13,13 @@ import { Validators } from '@angular/forms';
 })
 export class EditPostComponent implements OnInit {
   // blog:BlogModel[]=[];
+  categories: CategoryModel[] = [];
   type= localStorage.getItem('accountType');
   username= localStorage.getItem('username');
   mailid=localStorage.getItem('mailid');
-  categories=['Travel','Food','Film','Science and Technology','Pets'];
   message='';
+  // categories=['Travel','Food','Film','Science and Technology','Pets'];
+  postdate= new Date();
   postid= localStorage.getItem('postid');
   formData:any;
   // title='anjali';
@@ -29,7 +33,8 @@ export class EditPostComponent implements OnInit {
     title: '',
     category:'',
     postImage: '',
-    description: ''
+    description: '',
+    postdate:[this.postdate]
   };
   // editPostForm = this.fb.group({
   //   _id: [this.postid],
@@ -41,9 +46,12 @@ export class EditPostComponent implements OnInit {
   //   postImage: [''],
   //   description: ['']
   // }) 
-  constructor(private blogdata:BlogDataService, private fb:UntypedFormBuilder) { }
+  constructor(private blogdata:BlogDataService, private fb:UntypedFormBuilder, private router:Router) { }
 
   ngOnInit(): void {
+    this.blogdata.getCategories().subscribe(res => {
+      this.categories = JSON.parse(JSON.stringify(res))
+    })
   //  this.postid= localStorage.getItem('postid');
   this.blogdata.getSingleBlog(this.postid).subscribe(res=>{
     this.formData=JSON.parse(JSON.stringify(res));
@@ -59,6 +67,8 @@ console.log("this.blog")
   editPost(){
 this.blogdata.editBlog(this.editPostForm).subscribe(res=>{
   console.log(res);
+  alert(JSON.parse(JSON.stringify(res)).message);
+  this.router.navigate(['allblogs'])
 })
     console.log(this.editPostForm)
   }

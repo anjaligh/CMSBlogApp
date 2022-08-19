@@ -38,6 +38,7 @@ import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { EditCategoryComponent } from './edit-category/edit-category.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     CreateCategoryComponent,
     AdminProfileComponent,
     CategoriesComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

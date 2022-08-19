@@ -1,1 +1,23 @@
-<p>admin-profile works!</p>
+<div class="container1"  *ngFor="let user of profile">
+    <h1>Hello {{user.username}}..!</h1>
+    <div class="details">
+        <div class="row">
+            <div class="col-sm-3 col-md-6 col-lg-4">
+              <img src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?size=338&ext=jpg&ga=GA1.2.851654322.1655635530" alt="" class="responsive">
+            </div>
+            
+            <div class="col" > <br><br>
+              <dl class="row">         
+                <dt class="col-sm-6">Name</dt>
+                <dd class="col-sm-6">: {{user.username}}</dd>
+                <dt class="col-sm-6">E-mail Id</dt>
+                <dd class="col-sm-6">: {{user.mailid}}</dd>
+                <dt class="col-sm-6">Account Type</dt>
+                <dd class="col-sm-6">: {{user.accountType}} </dd>
+              </dl>
+            </div>
+        </div>
+    </div>
+    
+</div>
+

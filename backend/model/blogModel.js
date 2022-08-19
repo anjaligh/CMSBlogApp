@@ -19,7 +19,8 @@ var BlogSchema= new Schema({
     title: {type:String,required:true},
     category:{type:String,required:true},
     postImage:{type:String,required:true},
-    description: {type:String,required:true}
+    description: {type:String,required:true},
+    postdate:{type:Date,required:true}
 });
 
 var blogData= mongoose.model('Blog',BlogSchema);

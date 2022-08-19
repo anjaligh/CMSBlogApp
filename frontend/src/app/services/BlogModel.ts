@@ -8,6 +8,7 @@ export class BlogModel{
     public category : String,
     public postImage : String,
     public description : String,
+    public postdate:Date
     // public comments :Object
     ){}
 }

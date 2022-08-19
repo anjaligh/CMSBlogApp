@@ -1,6 +1,6 @@
 <div class="container1">
     <div class="form-box">
-        
+      <br><br>  
         <form id="form-reg"(ngSubmit)="editPost()">
             <h1>Edit Post</h1><br>
             <p>{{message}}</p>
@@ -10,14 +10,15 @@
             <small style="color: green;" *ngIf="editPostForm.controls['title'].valid">Valid!</small> -->
             <br>
             
-            <label for="postImage">Image</label><br>
-            <input type="file" id="post-image" name="postImage" accept="image/*" [(ngModel)]="editPostForm.postImage"><br>
+            <label for="postImage">Image url</label><br>
+            <!-- <input type="file" id="post-image" name="postImage" accept="image/*" [(ngModel)]="editPostForm.postImage"><br> -->
+            <input type="text" id="post-image" name="postImage"  [(ngModel)]="editPostForm.postImage"><br>
             <!-- <small style="color: red;"*ngIf="editPostForm.controls['postImage'].touched && editPostForm.controls['postImage'].invalid">Please select a file!</small>
             <small style="color: green;"*ngIf="editPostForm.controls['postImage'].valid">Valid!</small><br> -->
             
             <label for="category" style="padding-right: 40px;" >Blog Category</label><br>
             <select id="category"name="category" [(ngModel)]="editPostForm.category">
-                <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+                <option *ngFor="let category of categories" value="{{category.categoryName}}">{{category.categoryName}}</option>
             </select><br><br>
             <!-- <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -34,7 +35,7 @@
             <small style="color: green;"*ngIf="editPostForm.controls['description'].valid">Valid!</small><br> -->
             <br>
         
-            <button  id="submit">button</button><br>
+            <button  id="submit">Submit</button><br>
         </form>
 
         <!-- <form id="form-reg" [formGroup]="editPostForm" (ngSubmit)="editPost()">

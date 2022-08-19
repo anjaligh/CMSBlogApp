@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { BackendDataService } from '../services/backend-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: UntypedFormBuilder,
-    private backEnd: BackendDataService
+    private backEnd: BackendDataService,
+    private router: Router
   ) { }
   submitted = false;
   message='';

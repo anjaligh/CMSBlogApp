@@ -38,7 +38,7 @@ export class LoginAdminComponent implements OnInit {
          
           }
           else{
-            this.router.navigate(['rootuser']);
+            this.router.navigate(['rootuser/adminprofile']);
           }
           
           

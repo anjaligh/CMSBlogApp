@@ -15,7 +15,7 @@
     /* z-index: -1; */
 }
 .container2{
-    width: 100vw;
+    width: 100vw; 
     height: 130vh;
     display: flex;
     align-items: center;
@@ -73,8 +73,8 @@ p{
 #submit{
     width: 400px;
     height: 40px;
-    background-image: linear-gradient(to right, #FF8E00,#FFE400);
-    border: 1px solid linear-gradient(to right, #FF8E00,#FFE400);
+    background-color: #ff1625;
+    border: 1px solid #F90716;
     border-radius: 8px;
     font-family: Noto Sans ;
     font-weight: 400;

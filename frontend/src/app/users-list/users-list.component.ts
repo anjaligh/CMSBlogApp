@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendDataService } from '../services/backend-data.service';
 import { UserModel } from '../services/UserModel';
+import { faPen} from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
@@ -8,7 +9,7 @@ import { UserModel } from '../services/UserModel';
 })
 export class UsersListComponent implements OnInit {
   Users: UserModel[] = [];
-  
+  faPen=faPen;
   types = ['Admin', 'User'];
   constructor(private bdata: BackendDataService) { }
   editUserForm = {

@@ -1,5 +1,5 @@
 <div class="container1">
-    <h1>Categories</h1><br>
+    <br><h1>Categories</h1><br>
     <div class="table-responsive-sm"id="table">
         <table class="table rounded-top">
             <thead class="thead-dark " id="thead1">
@@ -20,9 +20,16 @@
                 <td><button class="btn-edit" (click)="editCategory(category._id)"><fa-icon [icon]="faPen"></fa-icon> Edit</button>
                   <button class="btn-delete" (click)="deleteCategory(category._id)"><fa-icon [icon]="faTrashCan"></fa-icon> Delete</button></td>
               </tr>
+              <tr>
+                <!-- <td>1</td> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button title="Add category" class="btn-add" type="button" (click)="addCategory()"><fa-icon id="add-icon" [icon]="faPlusCircle"></fa-icon></button></td>
+              </tr>
               
             </tbody>
-            <button class="btn-add" type="button" (click)="addCategory()"><fa-icon [icon]="faPlusCircle"></fa-icon></button>
+            
           </table>
       </div>
 </div>

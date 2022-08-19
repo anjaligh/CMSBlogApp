@@ -7,6 +7,7 @@
   height: 100%;
   padding-top: 0px;
   /* overflow-x: hidden;  */
+  /* overflow-y: scroll; */
 }
 html {
   font-family: "Inter", sans-serif;
@@ -11561,7 +11562,7 @@ section.our-blog {
 	margin-top: 0px;
 	margin-bottom: 80px;
   font-family:Arial, Helvetica, sans-serif;
-	font-size: 22px;
+	font-size: 32px;
 	font-weight: 700;
 	letter-spacing: 0.5px;
 	text-transform: capitalize;
@@ -11631,3 +11632,13 @@ section.our-blog {
 .readmore{
   color: #008211;
 }
+.creatorname{
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color:rgb(63, 63, 63);
+}
+.img-fluid{
+  height: inherit;
+}
+
