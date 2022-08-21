@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-logoImage="assets/logopc2.png"
+logoImage="assets/plastercast.png"
 containername:any;
   constructor(private bdata:BackendDataService, public auth:AuthService) { }
 

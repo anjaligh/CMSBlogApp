@@ -16,6 +16,7 @@ export class AllBlogsComponent implements OnInit {
   categoryBlogs: BlogModel[] = [];
   blogsCategory = 'Food';
   faSearch = faSearch;
+  categoryclass:any="inactive";
   constructor(private blogData: BlogDataService,public auth:AuthService,private router:Router ) { }
 
   ngOnInit(): void {
@@ -30,6 +31,7 @@ export class AllBlogsComponent implements OnInit {
 
 
   findCategory(category: any) {
+    this.categoryclass="active1";
     localStorage.setItem('blogsCategory', category);
     this.blogsCategory = category;
     this.blogData.findCategory(category).subscribe(res => {
@@ -38,8 +40,9 @@ export class AllBlogsComponent implements OnInit {
     })
   }
 
-  showBlogPage(_id: any) {
+  showBlogPage(_id: any,title:any) {
     localStorage.setItem("_id", _id);
+    localStorage.setItem('blogtitle',title);
     this.router.navigate(['/blogpage']);
 
   }

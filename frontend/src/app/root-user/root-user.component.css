@@ -2,7 +2,7 @@
 .container1{
     margin: 0px;
     width: 100vw;
-    height: 90vh;
+    /* height: 90vh; */
     overflow-x: hidden;
     display: flex;
 }
@@ -10,7 +10,7 @@
     max-width: 250px;
     width: 100%;
     background-color: #377D71;
-    height: 90vh;
+    /* height: 90vh; */
 justify-content: center;
 }
 .sidebar a{

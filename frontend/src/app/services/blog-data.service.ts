@@ -55,4 +55,15 @@ export class BlogDataService {
     console.log("category "+category);
     return this.http.get('http://localhost:3001/findcategory/'+category)
   }
+  postComment(comment:any){
+    console.log("servicedata")
+    console.log(comment)
+    let headers={
+      'Authorization':"Bearer "+localStorage.getItem('token')
+    }
+    return this.http.post('http://localhost:3001/postcomment',comment,{headers:headers})
+  }
+  getComments(blogid:any){
+    return this.http.get('http://localhost:3001/getcomments/'+blogid)
+  }
 }

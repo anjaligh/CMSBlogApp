@@ -1,9 +1,10 @@
 <div class="container1">
+    <br>
     <div class="container2">
         <div class="form-box">
             
             <form id="form-reg" [formGroup]="adminloginForm" (ngSubmit)="loginAdmin()">
-                <h1>Login</h1><br>
+                <h1>Login</h1><br><br>
                 <label for="email">Email</label><br>
                 <input type="text" id="email" name="mailid" formControlName="mailid"><br>
                 <small style="color: red;" *ngIf="adminloginForm.controls['mailid'].touched && adminloginForm.controls['mailid'].invalid">Invalid email id!</small>
@@ -24,5 +25,6 @@
         </div>
         
     </div>
+    <br><br>
 </div>
 

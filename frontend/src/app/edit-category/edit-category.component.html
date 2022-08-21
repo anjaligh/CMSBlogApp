@@ -2,7 +2,7 @@
     <div class="form-box">
         
         <form id="form-reg" (ngSubmit)="editCategory()">
-            <h1>Edit Category</h1><br>
+           <br><br> <h1>Edit Category</h1><br>
             <p>{{message}}</p>
             <label for="posttitle">Category Name</label><br>
             <input type="text" id="posttitle" name="categoryName"[(ngModel)]="editCategoryForm.categoryName" ><br>
@@ -28,7 +28,7 @@
             <small style="color: green;"*ngIf="createCategoryForm.controls['categoryDescription'].valid">Valid!</small> -->
             <br>
         
-            <button type="submit" id="submit">button</button><br>
+            <button type="submit" id="submit">Update</button><br>
         </form>
     </div>
     

@@ -2,21 +2,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 *{
-    vertical-align: bottom;
+    /* vertical-align: bottom; */
     padding: 0px;
     margin: 0px;
 }
 .container1{
     width: 100vw;
-    height: 130vh;
-    position: absolute;
+    /* height: 130vh; */
+    position: relative;
     top: 0px;
-    background-image: linear-gradient(to bottom, black,rgba(0, 0, 0, 0));
+    /* background-image: linear-gradient(to bottom, black,rgba(0, 0, 0, 0)); */
     /* z-index: -1; */
 }
 .container2{
     width: 100vw; 
-    height: 130vh;
+    /* height: 130vh; */
     display: flex;
     align-items: center;
     justify-content: center;

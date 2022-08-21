@@ -20,23 +20,7 @@ faLayerGroup=faLayerGroup;
 
   ngOnInit(): void {
   }
-  active="active";
-  onButtonGroupClick($event: { target: any; srcElement: any; }){
-    let clickedElement = $event.target || $event.srcElement;
-    console.log($event);
-    console.log($event.srcElement);
-    if( clickedElement.nodeName === "A" ) {
 
-      let isCertainButtonAlreadyActive = clickedElement.parentElement.querySelector(".active");
-      // if a Button already has Class: .active
-      if( isCertainButtonAlreadyActive ) {
-        isCertainButtonAlreadyActive.classList.remove("active");
-      }
-
-      clickedElement.className = "active";
-    }
-console.log(clickedElement.className)
-  }
   userVerify(){
    var accountType= localStorage.getItem('accountType');
    if (accountType==="User"){

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const registerData = require('./model/registerModel');
 const blogData = require('./model/blogModel');
 const categoryData = require('./model/categoryModel');
+const commentData= require('./model/commentModel')
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 // const multer  = require('multer');
@@ -166,6 +167,44 @@ console.log("added")
 
     })
 })
+app.post('/postcomment',verifyToken,(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  console.log('hello backend comment')
+  console.log(req.body);
+  var newComment= {
+    mailid: req.body.mailid,
+    username: req.body.username,
+    blogid: req.body.blogid,
+    comment: req.body.comment,
+    commentdate: req.body.commentdate
+  }
+  var newCommentData = new commentData(newComment)
+  newCommentData.save()
+    .then((result) => {
+console.log("added")
+      res.json({ success: true, message: "Comment added successfully" })
+    }).catch(err => {
+      if (err.code === 11000) {
+
+        return res.json({ success: false, message: "Comment already exists" })
+
+
+      }
+      return res.json({ success: false, message: "Couldn't save data. Please try again" })
+
+    })
+})
+app.get('/getcomments/:blogid',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS'); 
+  blogid=req.params.blogid;
+  commentData.find({"blogid":blogid})
+      .then((comments) => {
+          console.log(comments)
+          res.send(comments)
+      });
+});
 
 app.get('/getcategories',(req, res) => {
   res.header('Access-Control-Allow-Origin', '*');

@@ -13,7 +13,8 @@
 .container2{
     padding-left: 2vw;
     padding-right: 2vw;
-    background-image: linear-gradient(to bottom,black,rgba(0, 0, 0, 0.719));
+    /* background-image: linear-gradient(to bottom,black,rgba(0, 0, 0, 0.719)); */
+    background-color: black;
     z-index: 200;
     /* position: fixed;
     margin-top: 0px;

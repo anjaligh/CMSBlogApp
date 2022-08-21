@@ -4,7 +4,7 @@
 .container1{
   margin: 0px;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   padding-top: 0px;
   /* overflow-x: hidden;  */
   /* overflow-y: scroll; */
@@ -11641,4 +11641,6 @@ section.our-blog {
 .img-fluid{
   height: inherit;
 }
-
+.active1{
+  color: blue;
+}

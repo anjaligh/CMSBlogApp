@@ -73,7 +73,7 @@ small{
     height: fit-content;
     margin: auto;
     padding: 0%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 
     display: flex;
     align-items: center;
@@ -89,8 +89,8 @@ small{
     font-weight: 400;
     font-size: 24px;
     line-height: 40px;
-    background-color: #ff1625;
-    border: 1px solid #F90716;
+    background-color: #fa3434;
+    border: 1px solid #fa3434;
     border-radius: 8px;
     margin: auto;
 }

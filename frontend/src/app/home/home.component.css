@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .container1{
-    position: absolute;
+    position: relative;
     top: 0px;
     margin: 0px;
-    max-height: 1000px;
+    /* max-height: 1000px; */
     background-image: linear-gradient(to right, #FF8E00,#FFE400);
     z-index: -1;
 }

@@ -23,8 +23,9 @@ body {
     background-color: rgb(65, 148, 134);
 }
 .container1{
-    position: absolute;
-    top: 0px;
+    /* position: relative;
+    top: 0px; */
+    margin-bottom: 0px;
     z-index: -1;
     background-color: white;
     overflow-y: scroll;
@@ -93,7 +94,7 @@ body {
     font-weight: 600;
     color: #fff;
     /* line-height: 44px; */
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     /* padding: 10%; */
 }
 .banner p {
@@ -132,12 +133,76 @@ body {
 }
 .butn{
     width: 30px;
-    margin: 0px 10px 40px 10px;
-    background-color: #FA9905;
-    border: 1px solid #FA9905;
-    color: white;
+    margin: 0px 5px 40px 5px;
+    background-color: #fa980500;
+    border: 1px solid #fa9805;
+    color: #FA9905;
     border-radius: 8px;
     height: 30px;
+}
+.blog-comment {
+    background-color: #ffffff;
+    /* background-image: url('https://images.unsplash.com/photo-1487147264018-f937fba0c817?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+    background-size: cover;
+    background-position: bottom; */
+    width:70% ;
+    height: auto;
+    font-family: Poppins;
+    font-weight: 300;
+    padding: 30px 60px 30px 60px;
+    box-shadow: 0px 0px 10px 0px;
+    color: #000000;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    align-items: center;
+    text-align: justify;
+  text-justify: inter-word;
+    z-index: 4;
+}
+.blog-addcomment {
+    /* display: flex; */
+    background-color: #ffffff;
+    /* background-image: url('https://images.unsplash.com/photo-1487147264018-f937fba0c817?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+    background-size: cover;
+    background-position: bottom; */
+    width:70% ;
+    height: auto;
+    padding: 0px;
+    color: #ffffff;
+    margin-top: 0px;
+    align-items: right;
+    z-index: 4;
+}
+fa-icon{
+    padding-right: 5px;
+}
+#add{
+   position: relative;
+   left: 75%;
+    color: black;
+}
+.blog-addcomment button{
+    background-color: white;
+    border: none;
+    color: rgb(134, 134, 134);
+}
+.comments{
+    display: flex;
+
+}
+#form-reg > input{
+    position: absolute;
+    width:700px ;
+    /* width: 100%; */
+    font-family: Poppins;
+    padding-left: 20px;
+    height: 40px;
+    border: 1px solid rgb(185, 184, 184);
+    border-radius: 8px;
+}
+#form-reg fa-icon {
+    margin-top: 50px;
+    color: #fa9805;
 }
 @media (max-width: 700px) {
     .banner h2 {
