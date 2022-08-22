@@ -8,8 +8,7 @@
 }
 .container1{
     width: 100vw;
-    height: 130vh;
-    position: absolute;
+    /* position: absolute; */
     /* top: 0px; */
 }
 .container2{
