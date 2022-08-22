@@ -29,7 +29,7 @@ const routes: Routes = [
   canActivate:[AuthGuard],
   component:RootUserComponent, children:
             [
-              {path:'createcategory',component:CreateCategoryComponent},
+              {path:'createcategory',canActivate:[AuthGuard],component:CreateCategoryComponent},
               {path:'adminprofile',component:AdminProfileComponent},
               {path:'categories',component:CategoriesComponent},
               {path:'editcategory', component:EditCategoryComponent},

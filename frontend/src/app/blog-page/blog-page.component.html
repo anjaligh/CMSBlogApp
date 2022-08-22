@@ -33,11 +33,11 @@
       display: flex;
       align-items: center;
       justify-content: center;">
-      <button class="butn" type="button" (click)="updatePost(i._id)" *ngIf="auth.loggedIn() && !auth.userVerify()"
+      <button class="butn" type="button" (click)="updatePost(i._id)" *ngIf="(auth.loggedIn() && !auth.userVerify()) || creator"
         title="Edit Blog">
         <fa-icon [icon]="faPenToSquare"></fa-icon>
       </button>
-      <button class="butn" type="button" (click)="deleteBlog(i._id)" *ngIf="auth.loggedIn() && !auth.userVerify()"
+      <button class="butn" type="button" (click)="deleteBlog(i._id)" *ngIf="(auth.loggedIn() && !auth.userVerify()) || creator"
         title="Delete Blog">
         <fa-icon [icon]="faTrashCan"></fa-icon>
       </button>

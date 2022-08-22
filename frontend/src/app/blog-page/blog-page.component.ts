@@ -26,6 +26,7 @@ export class BlogPageComponent implements OnInit {
   blogid = localStorage.getItem("_id")
 
   commentbox = false;
+  creator=false;
   commentpic="/assets/user.png";
   message = '';
   imageUrl: String = '';
@@ -45,7 +46,9 @@ export class BlogPageComponent implements OnInit {
       this.blog = JSON.parse(JSON.stringify(res))
       console.log("this.myBlog")
       console.log(this.blog)
-      
+      if(this.mailid== this.blog[0].mailid){
+        this.creator= true;
+      }
       this.blogdata.getComments(id).subscribe(res => {
         this.comments = JSON.parse(JSON.stringify(res))
         console.log(this.comments)
@@ -77,6 +80,7 @@ export class BlogPageComponent implements OnInit {
     this.blogdata.deleteBlog(id).subscribe(res => {
         alert(JSON.parse(JSON.stringify(res)).message)
       })
+      this.router.navigate(['allblogs'])
     }
   addComment() {
       this.commentbox = true;
@@ -88,7 +92,7 @@ export class BlogPageComponent implements OnInit {
     console.log(this.commentForm.value)
     this.blogdata.postComment(this.commentForm.value).subscribe(res => {
         console.log("res.message");
-        alert(JSON.parse(JSON.stringify(res)).message);
+        // alert(JSON.parse(JSON.stringify(res)).message);
         this.message = JSON.parse(JSON.stringify(res)).message;
         this.blogdata.getComments(id).subscribe(res => {
           this.comments = JSON.parse(JSON.stringify(res))

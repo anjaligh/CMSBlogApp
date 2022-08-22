@@ -68,7 +68,7 @@
       stroke="none" stroke-width="0" fill="url(#gradient)" fill-opacity="1"
       class="transition-all duration-300 ease-in-out delay-150 path-0"></path>
   </svg>
-  <div class="row box">
+  <div class="row box" >
     <div class="col aboutus">
       <div class="card">
         <div class="card-header">
@@ -81,7 +81,37 @@
           </blockquote>
         </div>
       </div>
+      
     </div> 
+    
+
+    <h1 style="font-family: DynaPuff;
+    font-weight: 600; font-size:64px ;line-height:70px; margin-bottom: 5%;">Explore..</h1>
+    
   </div>
-  
+
+
 </div>
+<div class="container2">
+  <div class="my-col" *ngFor="let blog of allBlogs">
+    <div class="card bg-dark text-white aligned-card card1">
+      <a routerLink="adminlogin">
+          <img class="card-img" src="{{blog.postImage}}" alt="Card image">
+      <div class="card-img-overlay">
+        <h2 class="card-title">{{blog.title}}</h2>
+        <h3 class="card-category">{{blog.category}}</h3>
+        <!-- <p>{{blog.username}}</p> -->
+        <p class="card-text" id="description">{{blog.description}}</p>
+        <small id="date">Last Updated on {{blog.postdate | date}}</small><br>
+        <!-- <button id="delete-icon" (click)="deleteBlog(blog._id)">Delete</button> -->
+        <!-- <div style="position: absolute; bottom: 0px; right: 0px;">
+    <button class="butn" type="button" (click)="updatePost(blog._id)" title="Edit Blog"><fa-icon [icon]="faPenToSquare"></fa-icon></button>
+    <button class="butn" type="button" (click)="deleteBlog(blog._id)" title="Delete Blog"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+  </div> -->
+        <!-- <p class="card-text">Last updated 3 mins ago</p> -->
+      </div>
+      </a>
+    </div>
+  </div>
+    
+    </div>

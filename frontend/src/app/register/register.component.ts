@@ -43,7 +43,7 @@ className=""
         console.log(this.message)
         this.className='alert alert-success'
         alert("Account Created ")
-        // window.location.reload();
+        this.router.navigate(['adminlogin'])
       }else 
       {
         this.isProcessing=false;

@@ -40,7 +40,7 @@
                 <small style="color: red;"*ngIf="registerForm.controls['passwordCnfrm'].touched && (registerForm.controls['password'].value !== registerForm.controls['passwordCnfrm'].value)">Passwords do not match!</small>
                 <small style="color: green;"*ngIf="registerForm.controls['passwordCnfrm'].touched && (registerForm.controls['password'].value === registerForm.controls['passwordCnfrm'].value)">Passwords Match!</small><br>
                 
-                <button [disabled]="this.registerForm.invalid" id="submit">Submit</button><br>
+                <button [disabled]="this.registerForm.invalid || (registerForm.controls['password'].value !== registerForm.controls['passwordCnfrm'].value)" id="submit">Submit</button><br>
                 <p>Already have an account? <a routerLink="/adminlogin">Login</a> </p> 
             </form>
         </div>

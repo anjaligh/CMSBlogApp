@@ -202,7 +202,7 @@ fa-icon{
 }
 #form-reg fa-icon {
     margin-top: 50px;
-    color: #fa9805;
+    color: green;
 }
 @media (max-width: 700px) {
     .banner h2 {

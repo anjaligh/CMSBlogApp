@@ -31,6 +31,9 @@ export class BlogDataService {
     console.log("usermailService "+mailid);
     return this.http.get('http://localhost:3001/getmyblogs/'+mailid)
   }
+  getAllBlogs(){
+    return this.http.get('http://localhost:3001/getallblogs')
+  }
   getSingleBlog(id:any){
     return this.http.get('http://localhost:3001/getsingleblog/'+id)
   }

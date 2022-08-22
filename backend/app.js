@@ -6,6 +6,7 @@ const blogData = require('./model/blogModel');
 const categoryData = require('./model/categoryModel');
 const commentData= require('./model/commentModel')
 const cors = require('cors');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 // const multer  = require('multer');
 const bodyparser = require('body-parser');
@@ -32,11 +33,13 @@ let token= req.headers.authorization.split(' ')[1];
 console.log("token");
 console.log(token);
 if(token==null){
+  //  return res.json({ success: false, message: "Unauthorized user" })
   return res.status(401).send('Unauthorized user');
 }
 let payload=jwt.verify(token, 'CMSBlogApp');
 console.log(payload)
 if(!payload){
+//  return res.json({ success: false, message: "Unauthorized user" })
   return res.status(401).send('Unauthorized user');
 }
 req.userId=payload.userid
@@ -49,12 +52,17 @@ app.post('/register', (req, res) => {
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
   console.log('hello backend')
   console.log(req.body);
+  bcrypt.hash(req.body.password, 10, (err, hash) => {
+    if (err) {
+      return res.json({ success: false, message: "Hashing issue" })
+    }
+    else {
   var newUser = {
     mailid: req.body.mailid,
     username: req.body.username,
     accountType: req.body.accountType,
-    password: req.body.password,
-    passwordCnfrm: req.body.passwordCnfrm
+    password: hash
+    // passwordCnfrm: req.body.passwordCnfrm
   }
   var newRegisterData = new registerData(newUser)
   newRegisterData.save()
@@ -71,7 +79,8 @@ app.post('/register', (req, res) => {
       return res.json({ success: false, message: "Authentication Failed" })
 
     })
-
+  }
+})
   // res.send('success');
 })
 
@@ -90,8 +99,8 @@ app.post('/login', (req, res) => {
       //     return res.json({ success: false, message: "Account Type Mismatch!!" })
       // }
       // else{
-      // bcrypt.compare(req.body.password,user.password,(err, ret) => {
-      if (req.body.password === user.password) {
+      bcrypt.compare(req.body.password,user.password,(err, ret) => {
+      if (ret) {
         let accountType = user.accountType;
         let username = user.username;
         let mailid = user.mailid
@@ -105,7 +114,7 @@ app.post('/login', (req, res) => {
       else {
         return res.json({ success: false, message: "Password not matched" })
       }
-      // })
+      })
       // }
 
     }).catch(err => {
@@ -131,10 +140,10 @@ app.post('/createpost',verifyToken, (req, res) => {
   var newBlogData = new blogData(newBlog)
   newBlogData.save()
     .then((result) => {
-
+// res.send('Blog data added')
       res.json({ success: true, message: "Blog data added" })
     }).catch(err => {
-      
+      // return res.send("Couldn't save data. Please try again");
       return res.json({ success: false, message: "Couldn't save data. Please try again" })
 
     })
@@ -269,6 +278,16 @@ app.get('/getmyblogs/:mailid',(req, res) => {
   res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
   const mailid=req.params.mailid
   blogData.find({ "mailid": mailid })
+      .then((blogs) => {
+          console.log(blogs)
+          res.send(blogs)
+      });
+});
+app.get('/getallblogs',(req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+  
+  blogData.find({}).limit(8)
       .then((blogs) => {
           console.log(blogs)
           res.send(blogs)

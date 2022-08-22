@@ -42,6 +42,7 @@ console.log(this.createPostForm.value)
 this.blogData.createPost(this.createPostForm.value).subscribe(res=>{
   console.log("res.message");
   alert(JSON.parse(JSON.stringify(res)).message);
+  // alert(res)
   this.message=res.message;
   this.router.navigate(['myblogs']);
 })

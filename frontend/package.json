@@ -25,7 +25,10 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "jquery": "^3.6.0",
+    "ngx-slick-carousel": "^0.6.0",
     "rxjs": "~7.5.0",
+    "slick-carousel": "^1.8.1",
     "tslib": "^2.3.0",
     "typewriter-effect": "^2.19.0",
     "zone.js": "~0.11.4"

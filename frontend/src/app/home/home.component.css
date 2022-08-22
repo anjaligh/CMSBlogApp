@@ -1,5 +1,84 @@
 @import url('https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+.container2{
+    width: 100vw;
+    font-family: Poppins;
+    display: flex;
+    align-items: center;
+  justify-content: center;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to right, #FF8E00,#FFE400);
+}
+
+.my-col{
+    width: 280px;
+    height: 300px;
+    margin-right: 45px;
+    margin-bottom: 20px;
+}
+.aligned-card{
+    margin-right:50px;
+}
+.card1{
+    width: 300px;
+    font-family: Poppins;
+    /* width: 100%; */
+    height: 300px;
+    /* height: 100%; */
+}
+.card-title{
+    font-family: Poppins !important;
+    font-size: 20px !important;
+    line-height: 26px !important;
+}
+.card-category{
+font-weight: 700;
+line-height: 14px;
+}
+.card-img{
+    width: 300px;
+    /* width: 100%; */
+    height: 300px;
+    /* height: 100%; */
+    
+}
+h1{
+   display: flex;
+    justify-content: center;
+    font-family: Noto Serif ;
+font-size: 36px;
+}
+.card-img-overlay{
+    width: 300px;
+    /* width: 100%; */
+    height: 300px;
+    /* height: 100%; */
+    background-color: rgba(0, 0, 0, 0.336);
+    color: white;
+    font-weight: 500;
+}
+#description{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2; 
+   -webkit-box-orient: vertical;
+}
+
+.butn{
+    width: 30px;
+    margin: 0px 10px 40px 10px;
+    background-color: #fa3434;
+    border: 1px solid #fa3434;
+    color: white;
+    border-radius: 8px;
+    height: 30px;
+}
+
 .container1{
     position: relative;
     top: 0px;
@@ -132,6 +211,20 @@
 .blockquote-footer{
   float: right;
 }
+.slick-slider {
+  width: 88%;
+  margin: auto;
+  background: rgb(14, 13, 13);
+}
+
+body .slick-prev, 
+body .slick-next {
+  height: 45px;
+  width: 40px;
+  background: grey !important;
+  z-index: 100;
+}
+
 @media (max-width:700px){
   .carousel{
     width: 100vw;
